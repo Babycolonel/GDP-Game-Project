@@ -19,9 +19,7 @@ public class HappinessSystem : MonoBehaviour
 
         HB.SetMinHappiness(minHappiness);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -38,12 +36,49 @@ public class HappinessSystem : MonoBehaviour
         {
             currentHappiness = 0;
 
-        } else if (currentHappiness > 100)
+        }
+        else if (currentHappiness > 100)
         {
             currentHappiness = 100;
 
         }
     }
+
+    public void HappinessBarStart()
+    {
+        currentHappiness = maxHappiness;
+        HB.SetMaxHappiness(maxHappiness);
+        HB.SetHappiness(maxHappiness);
+
+        HB.SetMinHappiness(minHappiness);
+    }
+
+    public void HappinessBarUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            AddHappiness(10);
+            Debug.Log("");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            MinusHappiness(10);
+        }
+
+        if (currentHappiness < 0)
+        {
+            currentHappiness = 0;
+
+        }
+        else if (currentHappiness > 100)
+        {
+            currentHappiness = 100;
+
+        }
+    }
+    
+    
 
     public void AddHappiness(int happiness) //for happiness bar increases
     {
