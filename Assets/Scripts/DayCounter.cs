@@ -13,7 +13,7 @@ public class DayCounter: MonoBehaviour
     [SerializeField] public float timeRemaining;
     public TMP_Text DayCount;
     public bool timerIsRunning = false;
-    //HappinessCheck happinessCheck = new HappinessCheck();
+    HappinessCheck happinessCheck = new HappinessCheck();
     private void Start()
     {
         //timeRemaining = 5;
@@ -36,14 +36,14 @@ public class DayCounter: MonoBehaviour
                 {
                     //increases number of days by 1
                     DayNumber += 1;
-                    timeRemaining = 5;
+                    timeRemaining = 1;
                     DayCount.text = "Day: " + DayNumber;
                 }
                 else
                 {
                     Debug.Log("Time has run out!");
                     timerIsRunning = false;
-                    //happinessCheck.HappyCheck();
+                    happinessCheck.HappyCheck();
                 }
                 
             }
