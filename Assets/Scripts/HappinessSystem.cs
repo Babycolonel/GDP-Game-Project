@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class HappinessSystem : MonoBehaviour
 {
-    public int maxHappiness = 100;
+    public int maxHappiness = 15;
     public int minHappiness = 0;
     public int currentHappiness;
 
-    public HappinessBar HB; //class or variable used to call functions from the happiness bar script
+    public BarSetting HB; //class or variable used to call functions from the happiness bar script
 
     // Start is called before the first frame update
     void Start()
     {
         currentHappiness = maxHappiness;
-        HB.SetMaxHappiness(maxHappiness);
-        HB.SetHappiness(maxHappiness);
+        HB.SetMaxBar(maxHappiness);
+        HB.SetBar(maxHappiness);
 
-        HB.SetMinHappiness(minHappiness);
+        HB.SetMinBar(minHappiness);
     }
     void Update()
     {
@@ -31,29 +31,39 @@ public class HappinessSystem : MonoBehaviour
         {
             MinusHappiness(10);
         }
+    }
+    
+    public void AddHappiness(int value) //for happiness bar increases
+    {
+        currentHappiness += value;
 
-        if (currentHappiness < 0)
-        {
-            currentHappiness = 0;
-
-        }
-        else if (currentHappiness > 100)
+        if (currentHappiness > 100)
         {
             currentHappiness = 100;
 
         }
-    }
-    
-    public void AddHappiness(int happiness) //for happiness bar increases
-    {
-        currentHappiness += happiness;
 
-        HB.SetHappiness(currentHappiness);
+        HB.SetBar(currentHappiness);
     }
-    public void MinusHappiness(int happiness) //for happiness bar decreases
+    public void MinusHappiness(int value) //for happiness bar decreases
     {
-        currentHappiness -= happiness;
+        currentHappiness -= value;
 
-        HB.SetHappiness(currentHappiness);
+        if (currentHappiness < 0)
+        {
+            currentHappiness = 0;
+        }
+
+        HB.SetBar(currentHappiness);
+    }
+
+    public void OnHappyUpButton()
+    {
+        AddHappiness(10);
+    }
+
+    public void OnHappyDownButton()
+    {
+        MinusHappiness(10);
     }
 }
