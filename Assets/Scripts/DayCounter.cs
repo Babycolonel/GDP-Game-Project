@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SocialPlatforms.Impl;
+using Unity.VisualScripting;
 
 public class DayCounter: MonoBehaviour
 {
-    [SerializeField]public int DayNumber;
+    //initial number of days:
+    [SerializeField] public int DayNumber;
+    //length of days, in seconds:
     [SerializeField] public float timeRemaining;
     public TMP_Text DayCount;
     public bool timerIsRunning = false;
 
+    [SerializeField] public HappinessCheck happinessCheck;
     private void Start()
     {
         //timeRemaining = 5;
@@ -18,18 +22,22 @@ public class DayCounter: MonoBehaviour
         timerIsRunning = true;
     }
 
+
+
     void Update()
     {
         if (timerIsRunning)
         {
             if (timeRemaining > 0)
             {
+                //Counts down the time based on timeRemaining
                 timeRemaining -= Time.deltaTime;
             }
             else
             {
                 if(DayNumber < 5)
                 {
+                    //increases number of days by 1
                     DayNumber += 1;
                     timeRemaining = 5;
                     DayCount.text = "Day: " + DayNumber;
@@ -37,6 +45,8 @@ public class DayCounter: MonoBehaviour
                 else
                 {
                     Debug.Log("Time has run out!");
+                    timerIsRunning = false;
+                    happinessCheck.GetComponent<HappinessCheck>().Update();
                 }
                 
             }
