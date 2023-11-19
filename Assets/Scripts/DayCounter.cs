@@ -43,13 +43,13 @@ public class DayCounter: MonoBehaviour
                 {
                     Debug.Log("Time has run out!");
                     timerIsRunning = false;
-                    happinessCheck.HappyCheck();
+                    //happinessCheck.HappyCheck();
                 }
                 
             }
             while (DayNumber < 5)
             {
-                happinessCheck.HappyCheck();
+                //happinessCheck.HappyCheck();
             }
         }
 
