@@ -11,13 +11,17 @@ public class HappinessCheck: MonoBehaviour
 
         if (currentHappiness == 0)
         {
-            Debug.Log("Lose eee");
+            Debug.Log("Lose");
             //Lose();
         }
         else if (currentHappiness == 100)
         {
             Debug.Log("Win");
             //Win();
+        }
+        else
+        {
+            Debug.Log("not lose or win");
         }
     }
 }
