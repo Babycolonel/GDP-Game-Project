@@ -1005,13 +1005,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 768380077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f20247cf5419e5e4dae17c251b349437, type: 3}
+  m_Script: {fileID: 11500000, guid: 79b550e8c731b99409696e4b65d1cf88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHappiness: 100
-  minHappiness: 0
-  currentHappiness: 50
-  HB: {fileID: 2053428937}
 --- !u!1001 &783860213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1157,8 +1153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1093, y: -626}
-  m_SizeDelta: {x: 274.08, y: 111.76}
+  m_AnchoredPosition: {x: 1038.0112, y: -626}
+  m_SizeDelta: {x: 384.06, y: 111.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &910429348
 MonoBehaviour:
@@ -1273,6 +1269,7 @@ MonoBehaviour:
   timeRemaining: 1
   DayCount: {fileID: 910429348}
   timerIsRunning: 0
+  happinessCheck: {fileID: 0}
 --- !u!1 &994081619
 GameObject:
   m_ObjectHideFlags: 0

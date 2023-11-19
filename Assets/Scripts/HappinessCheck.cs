@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HappinessCheck: MonoBehaviour
+public class HappinessCheck
 {
     public void HappyCheck()
     {
