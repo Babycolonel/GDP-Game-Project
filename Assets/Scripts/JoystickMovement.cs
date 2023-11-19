@@ -15,6 +15,11 @@ public class JoystickMovement : MonoBehaviour
 
     void Update()
     {
+        
+    }
+
+    void FixedUpdate()
+    {
         float moveH = joystick.Horizontal;
         float moveV = joystick.Vertical;
         Vector2 moveDir = new Vector2 (moveH, moveV);
