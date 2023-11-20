@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HappinessSystem : MonoBehaviour
 {
-    public int maxHappiness = 15;
+    public int maxHappiness = 100;
     public int minHappiness = 0;
     public int currentHappiness;
 
@@ -15,7 +15,7 @@ public class HappinessSystem : MonoBehaviour
     {
         currentHappiness = maxHappiness;
         HB.SetMaxBar(maxHappiness);
-        HB.SetBar(maxHappiness);
+        HB.SetBar(currentHappiness);
 
         HB.SetMinBar(minHappiness);
     }
@@ -28,7 +28,6 @@ public class HappinessSystem : MonoBehaviour
         if (currentHappiness > 100)
         {
             currentHappiness = 100;
-
         }
 
         HB.SetBar(currentHappiness);
@@ -48,10 +47,18 @@ public class HappinessSystem : MonoBehaviour
     public void OnHappyUpButton()
     {
         AddHappiness(10);
+        Debug.Log(currentHappiness);
     }
 
     public void OnHappyDownButton()
     {
         MinusHappiness(10);
+        Debug.Log(currentHappiness);
+    }
+
+    void Update()
+    {
+        HB.SetBar(currentHappiness);
+        
     }
 }
