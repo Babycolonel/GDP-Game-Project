@@ -13,10 +13,11 @@ public class DayCounter : MonoBehaviour
     [SerializeField] public float timeRemaining;
     public TMP_Text DayCount;
     public bool timerIsRunning = false;
-    HappinessCheck happinessCheck = new HappinessCheck();
-    HappinessSystem happinessSystem = new HappinessSystem();
+    public HappinessCheck happinessCheck;
+    private HappinessSystem happinessSystem;
     private void Start()
     {
+        happinessSystem = happinessCheck.happinessSystem;
         //timeRemaining = 5;
         DayCount.text = "Day: " + DayNumber;
         timerIsRunning = true;

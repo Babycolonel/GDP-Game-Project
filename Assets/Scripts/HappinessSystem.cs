@@ -13,9 +13,9 @@ public class HappinessSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHappiness = minHappiness;
+        currentHappiness = maxHappiness;
         HB.SetMaxBar(maxHappiness);
-        HB.SetBar(maxHappiness);
+        HB.SetBar(currentHappiness);
 
         HB.SetMinBar(minHappiness);
     }
@@ -28,7 +28,6 @@ public class HappinessSystem : MonoBehaviour
         if (currentHappiness > 100)
         {
             currentHappiness = 100;
-
         }
 
         HB.SetBar(currentHappiness);
@@ -48,11 +47,13 @@ public class HappinessSystem : MonoBehaviour
     public void OnHappyUpButton()
     {
         AddHappiness(10);
+        Debug.Log(currentHappiness);
     }
 
     public void OnHappyDownButton()
     {
         MinusHappiness(10);
+        Debug.Log(currentHappiness);
     }
 
     void Update()
