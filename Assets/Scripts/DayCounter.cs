@@ -14,6 +14,7 @@ public class DayCounter : MonoBehaviour
     public TMP_Text DayCount;
     public bool timerIsRunning = false;
     HappinessCheck happinessCheck = new HappinessCheck();
+    HappinessSystem happinessSystem = new HappinessSystem();
     private void Start()
     {
         //timeRemaining = 5;
@@ -44,6 +45,7 @@ public class DayCounter : MonoBehaviour
                     Debug.Log("Time has run out!");
                     timerIsRunning = false;
                     happinessCheck.HappyCheck();
+                    Debug.Log(happinessSystem.currentHappiness);
                 }
 
             }

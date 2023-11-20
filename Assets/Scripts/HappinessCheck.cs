@@ -14,7 +14,7 @@ public class HappinessCheck
             Debug.Log("Lose");
             //Lose();
         }
-        else if (currentHappiness == 100)
+        else if (currentHappiness < 100)
         {
             Debug.Log("Win");
             //Win();
