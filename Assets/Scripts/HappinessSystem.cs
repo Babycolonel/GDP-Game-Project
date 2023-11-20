@@ -19,19 +19,7 @@ public class HappinessSystem : MonoBehaviour
 
         HB.SetMinBar(minHappiness);
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddHappiness(10);
-            Debug.Log("");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            MinusHappiness(10);
-        }
-    }
+    
     
     public void AddHappiness(int value) //for happiness bar increases
     {
