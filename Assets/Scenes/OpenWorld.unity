@@ -1270,6 +1270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 768380078}
   - component: {fileID: 768380079}
+  - component: {fileID: 768380080}
   m_Layer: 0
   m_Name: happiness system script
   m_TagString: Untagged
@@ -1308,6 +1309,19 @@ MonoBehaviour:
   minHappiness: 0
   currentHappiness: 50
   HB: {fileID: 2053428937}
+--- !u!114 &768380080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768380077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b71763a00511d8429e1190857a92ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  happinessSystem: {fileID: 768380079}
 --- !u!1001 &783860213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1957,7 +1971,7 @@ MonoBehaviour:
   timeRemaining: 1
   DayCount: {fileID: 1393851147}
   timerIsRunning: 0
-  happinessSystem: {fileID: 0}
+  happinessCheck: {fileID: 768380080}
 --- !u!114 &1393851147
 MonoBehaviour:
   m_ObjectHideFlags: 0
