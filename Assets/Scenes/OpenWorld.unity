@@ -1222,7 +1222,7 @@ Transform:
   m_Children:
   - {fileID: 1244735655}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &681311241
 GameObject:
@@ -1258,7 +1258,7 @@ Transform:
   - {fileID: 35129346}
   - {fileID: 1469550993}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &768380077
 GameObject:
@@ -1272,7 +1272,7 @@ GameObject:
   - component: {fileID: 768380079}
   - component: {fileID: 768380080}
   m_Layer: 0
-  m_Name: happiness system script
+  m_Name: Game Script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1291,7 +1291,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &768380079
 MonoBehaviour:
@@ -2138,7 +2138,7 @@ Transform:
   m_Children:
   - {fileID: 1452585761}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1452585760
 GameObject:
@@ -2876,7 +2876,7 @@ Transform:
   - {fileID: 424425040}
   - {fileID: 1755654892}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2053428934
 GameObject:
