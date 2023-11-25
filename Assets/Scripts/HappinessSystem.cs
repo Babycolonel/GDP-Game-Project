@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Security.Cryptography;
 
 public class HappinessSystem : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class HappinessSystem : MonoBehaviour
     public int minHappiness = 0;
     public int currentHappiness;
 
+    public TMP_Text percentage; //percentage text
     public BarSetting HB; //class or variable used to call functions from the happiness bar script
 
     // Start is called before the first frame update
@@ -16,8 +19,9 @@ public class HappinessSystem : MonoBehaviour
         currentHappiness = maxHappiness;
         HB.SetMaxBar(maxHappiness);
         HB.SetBar(currentHappiness);
-
         HB.SetMinBar(minHappiness);
+
+        percentage.text = currentHappiness + "%";
     }
     
     
@@ -31,6 +35,7 @@ public class HappinessSystem : MonoBehaviour
         }
 
         HB.SetBar(currentHappiness);
+        percentage.text = currentHappiness + "%";
     }
     public void MinusHappiness(int value) //for happiness bar decreases
     {
@@ -42,6 +47,7 @@ public class HappinessSystem : MonoBehaviour
         }
 
         HB.SetBar(currentHappiness);
+        percentage.text = currentHappiness + "%";
     }
 
     public void OnHappyUpButton()
