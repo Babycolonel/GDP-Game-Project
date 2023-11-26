@@ -7,8 +7,8 @@ public class HappinessCheck : MonoBehaviour
     public HappinessSystem happinessSystem;
     public void HappyCheck()
     {
-        
-        int currentHappiness = happinessSystem.currentHappiness;
+
+        float currentHappiness = happinessSystem.currentHappiness;
         Debug.Log(currentHappiness);
         if (currentHappiness == 0)
         {
