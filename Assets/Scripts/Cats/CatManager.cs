@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CatManager : MonoBehaviour
 {
+
+    public static UnityEvent onFeedingCat = new UnityEvent();
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,15 @@ public class CatManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnClickFeed()
+    {
+        Feed();
+    }
+
+    void Feed()
+    {
+        onFeedingCat.Invoke();
     }
 }

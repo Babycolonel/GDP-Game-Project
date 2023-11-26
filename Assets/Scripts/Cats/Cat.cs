@@ -38,7 +38,24 @@ public class Cat : MonoBehaviour
 
         Debug.Log(CatCurrentHunger);
 
-        
+        CatManager.onFeedingCat.AddListener(FeedCat);
+    }
+
+    public void FeedCat()
+    {
+        IncreaseHunger(10);
+    }
+
+    public void IncreaseHunger(float value)
+    {
+        CatCurrentHunger += value;
+
+        if (CatCurrentHunger > 100)
+        {
+            CatCurrentHunger = 100;
+        }
+
+        HGB.SetBar(CatCurrentHunger);
     }
 
     void Die()
