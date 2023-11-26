@@ -6,9 +6,9 @@ using System.Security.Cryptography;
 
 public class HappinessSystem : MonoBehaviour
 {
-    public int maxHappiness = 100;
-    public int minHappiness = 0;
-    public int currentHappiness;
+    public float maxHappiness = 100;
+    public float minHappiness = 0;
+    public float currentHappiness;
 
     public TMP_Text percentage; //percentage text
     public BarSetting HB; //class or variable used to call functions from the happiness bar script
@@ -22,10 +22,12 @@ public class HappinessSystem : MonoBehaviour
         HB.SetMinBar(minHappiness);
 
         percentage.text = currentHappiness + "%";
+
+        Cat.onAnyCatDeath.AddListener(DeductHappiness);
     }
     
     
-    public void AddHappiness(int value) //for happiness bar increases
+    public void AddHappiness(float value) //for happiness bar increases
     {
         currentHappiness += value;
 
@@ -37,7 +39,7 @@ public class HappinessSystem : MonoBehaviour
         HB.SetBar(currentHappiness);
         percentage.text = currentHappiness + "%";
     }
-    public void MinusHappiness(int value) //for happiness bar decreases
+    public void MinusHappiness(float value) //for happiness bar decreases
     {
         currentHappiness -= value;
 
@@ -50,18 +52,10 @@ public class HappinessSystem : MonoBehaviour
         percentage.text = currentHappiness + "%";
     }
 
-    public void OnHappyUpButton()
-    {
-        AddHappiness(10);
-        Debug.Log(currentHappiness);
-    }
-
-    public void OnHappyDownButton()
+    public void DeductHappiness()
     {
         MinusHappiness(10);
-        Debug.Log(currentHappiness);
     }
-
     void Update()
     {
         HB.SetBar(currentHappiness);
