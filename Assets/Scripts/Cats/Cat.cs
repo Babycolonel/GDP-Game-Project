@@ -19,8 +19,11 @@ public class Cat : MonoBehaviour
     public static UnityEvent onAnyCatDeath = new UnityEvent();
 
     public BarSetting HPB, HGB;
-    
-    
+
+    //For the feeding system, checks if the cat collider is touching the player
+    public Transform playerCheck;
+    public LayerMask playerLayer;
+    public bool isPlayer;
 
 
     // Start is called before the first frame update
@@ -43,7 +46,11 @@ public class Cat : MonoBehaviour
 
     public void FeedCat()
     {
-        IncreaseHunger(10);
+        if (isPlayer)
+        {
+            IncreaseHunger(10);
+        }
+        
     }
 
     public void IncreaseHunger(float value)
@@ -93,4 +100,10 @@ public class Cat : MonoBehaviour
         }
         else { }
     }
+    void FixedUpdate()
+    {
+        isPlayer = Physics2D.OverlapCapsule(playerCheck.position, new Vector2(2.5f, 2.5f), CapsuleDirection2D.Vertical, 0, playerLayer);
+    }
 }
+
+
