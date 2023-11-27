@@ -9,6 +9,8 @@ public class CatSpawner : MonoBehaviour
 
     [SerializeField]
     private float initialSpawnTime;
+    [SerializeField]
+    private int spawnLimit;
 
     private float spawnTime;
 
@@ -23,10 +25,11 @@ public class CatSpawner : MonoBehaviour
     {
         spawnTime -= Time.deltaTime;
 
-        if (spawnTime <= 0)
+        if ((spawnTime <= 0) && (spawnLimit > 0))
         {
             Instantiate(cats[Random.Range(0, cats.Length)], transform.position, Quaternion.identity);
             spawnTime = initialSpawnTime;
+            spawnLimit -= 1;
             //Destroy(this);
         }
     }

@@ -1240,6 +1240,7 @@ MonoBehaviour:
   - {fileID: 1989752147958345581, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
   - {fileID: 7216906392117751861, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
   initialSpawnTime: 5
+  spawnLimit: 1
 --- !u!1 &917300866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,6 +1977,7 @@ MonoBehaviour:
   - {fileID: 1989752147958345581, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
   - {fileID: 7216906392117751861, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
   initialSpawnTime: 3
+  spawnLimit: 1
 --- !u!4 &1356325646
 Transform:
   m_ObjectHideFlags: 0
