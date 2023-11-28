@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class Cat : MonoBehaviour
 {
+    //[SerializeField] GameObject CatInteractButtons; //gameobject holding cat interactions buttons
+
     public float CatMaxHunger = 10;
     public float CatMinHunger = 0;
     public float CatCurrentHunger;
@@ -104,6 +106,17 @@ public class Cat : MonoBehaviour
     {
         isPlayer = Physics2D.OverlapCapsule(playerCheck.position, new Vector2(2.5f, 2.5f), CapsuleDirection2D.Vertical, 0, playerLayer);
     }
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        CatInteractButtons.SetActive(true); //makes the interact buttons visible
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        CatInteractButtons.SetActive(false); //makes the interaction buttons disabled
+    }*/
 }
 
 

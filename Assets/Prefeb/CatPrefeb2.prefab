@@ -506,6 +506,7 @@ GameObject:
   - component: {fileID: 7216906391843086257}
   - component: {fileID: 7216906391843086256}
   - component: {fileID: 7216906391843086255}
+  - component: {fileID: 2712673570011635155}
   m_Layer: 0
   m_Name: straycat2_white
   m_TagString: Untagged
@@ -619,6 +620,32 @@ PolygonCollider2D:
       - {x: 0.25735116, y: -0.09183779}
       - {x: 0.27503595, y: -0.042243317}
       - {x: 0.26455852, y: -0.014009204}
+--- !u!61 &2712673570011635155
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216906391843086258}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.32}
+    newSize: {x: 0.64, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.64, y: 0.32}
+  m_EdgeRadius: 0
 --- !u!1 &7216906392117751861
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7216906392117751860}
   - component: {fileID: 7216906392117751859}
+  - component: {fileID: 8575189809418783080}
   m_Layer: 0
   m_Name: CatPrefeb2
   m_TagString: Untagged
@@ -681,6 +709,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   isPlayer: 0
+--- !u!114 &8575189809418783080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216906392117751861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498f2dd2a5ca54b448246dbe901be6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CatInteractButtons: {fileID: 0}
 --- !u!1 &7216906392242644873
 GameObject:
   m_ObjectHideFlags: 0
