@@ -671,7 +671,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15719604, y: -0.22456884}
+  m_Offset: {x: -0.039580345, y: -0.0363822}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -682,7 +682,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.614206, y: 9.313781}
+  m_Size: {x: 6.7443695, y: 6.2087126}
   m_EdgeRadius: 0
 --- !u!1 &424425039
 GameObject:
@@ -3239,6 +3239,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1989752147149435607, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989752147505180567, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: playerCheck
       value: 
@@ -3309,7 +3317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1989752148725364639, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: m_TagString
-      value: cat
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2540469103237334163, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: m_Size.x
@@ -3372,10 +3380,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7216906390695093857, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7216906391281691648, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 7216906391546065294, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7216906391843086258, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: m_TagString
       value: Untagged

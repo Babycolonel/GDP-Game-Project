@@ -9,7 +9,7 @@ public class UIButtonAppear : MonoBehaviour
     [SerializeField] GameObject CatPrefab1;  // Assumes this prefab contains the cat object
     [SerializeField] GameObject CatInteractButtons;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Entered trigger zone");
 
@@ -63,8 +63,7 @@ public class UIButtonAppear : MonoBehaviour
         {
             Destroy(catInteractButtonsInstance);
         }
-    }
-    /*[SerializeField] GameObject CatInteractButtons;
+    }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -84,5 +83,5 @@ public class UIButtonAppear : MonoBehaviour
             Debug.Log("cat feed off");
             CatInteractButtons.SetActive(false);
         }
-    }*/
+    }
 }
