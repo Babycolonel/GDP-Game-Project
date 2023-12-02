@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class CatManager : MonoBehaviour
 {
-
+    
     public static UnityEvent onFeedingCat = new UnityEvent();
     // Start is called before the first frame update
     void Start()

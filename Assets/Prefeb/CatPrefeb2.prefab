@@ -225,7 +225,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 7216906390695093791}
   m_FillRect: {fileID: 7216906390450215307}
   m_HandleRect: {fileID: 0}
@@ -470,7 +470,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 7216906391546065293}
   m_FillRect: {fileID: 7216906392242644872}
   m_HandleRect: {fileID: 0}
@@ -669,6 +669,9 @@ MonoBehaviour:
   CatMaxHunger: 10
   CatMinHunger: 0
   CatCurrentHunger: 0
+  hasFeed: 0
+  feedingTime: 10
+  FeedMultiplier: 1
   CatMaxHealth: 10
   CatMinHealth: 0
   CatCurrentHealth: 0
@@ -676,6 +679,7 @@ MonoBehaviour:
   Executed: 0
   HPB: {fileID: 7216906391546065291}
   HGB: {fileID: 7216906390695093858}
+  CM: {fileID: 0}
   playerCheck: {fileID: 7956067299976398519}
   playerLayer:
     serializedVersion: 2
