@@ -9,6 +9,7 @@ public class Cat : MonoBehaviour
     public float CatMaxHunger = 10;
     public float CatMinHunger = 0;
     public float CatCurrentHunger;
+    public bool hasFeed = false;
 
     public float CatMaxHealth = 10;
     public float CatMinHealth = 0;
@@ -48,7 +49,7 @@ public class Cat : MonoBehaviour
     {
         if (isPlayer)
         {
-            IncreaseHunger(10);
+            hasFeed = true;
         }
         
     }
@@ -73,7 +74,7 @@ public class Cat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Isdead == false)
+        if ((Isdead == false)&&(hasFeed == false))
         {
             if (CatCurrentHunger > 0)
             {
@@ -92,6 +93,10 @@ public class Cat : MonoBehaviour
                 Isdead = true;
                 Executed = false;
             }
+        }
+        else if (hasFeed == true)
+        {
+            IncreaseHunger(Time.deltaTime);
         }
         else if (Executed == false)
         {
