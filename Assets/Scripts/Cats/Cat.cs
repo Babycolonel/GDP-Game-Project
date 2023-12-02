@@ -10,6 +10,9 @@ public class Cat : MonoBehaviour
     public float CatMinHunger = 0;
     public float CatCurrentHunger;
     public bool hasFeed = false;
+    public float feedingTime;
+    public float feedingLeft;
+    public int FeedMultiplier;
 
     public float CatMaxHealth = 10;
     public float CatMinHealth = 0;
@@ -20,6 +23,7 @@ public class Cat : MonoBehaviour
     public static UnityEvent onAnyCatDeath = new UnityEvent();
 
     public BarSetting HPB, HGB;
+    public CatManager CM;
 
     //For the feeding system, checks if the cat collider is touching the player
     public Transform playerCheck;
@@ -56,14 +60,18 @@ public class Cat : MonoBehaviour
 
     public void IncreaseHunger(float value)
     {
-        CatCurrentHunger += value;
-
-        if (CatCurrentHunger > 100)
+        if (Isdead == false)
         {
-            CatCurrentHunger = 100;
-        }
+            CatCurrentHunger += value;
 
-        HGB.SetBar(CatCurrentHunger);
+            if (CatCurrentHunger > 100)
+            {
+                CatCurrentHunger = 100;
+            }
+
+            HGB.SetBar(CatCurrentHunger);
+        }
+        
     }
 
     void Die()
@@ -96,7 +104,16 @@ public class Cat : MonoBehaviour
         }
         else if (hasFeed == true)
         {
-            IncreaseHunger(Time.deltaTime);
+            feedingLeft += Time.deltaTime;
+            if (feedingLeft <= feedingTime) 
+            {
+                IncreaseHunger(Time.deltaTime * FeedMultiplier);    
+            }
+            else
+            {
+                hasFeed = false;
+            }
+            
         }
         else if (Executed == false)
         {
@@ -109,6 +126,8 @@ public class Cat : MonoBehaviour
     {
         isPlayer = Physics2D.OverlapCapsule(playerCheck.position, new Vector2(2.5f, 2.5f), CapsuleDirection2D.Vertical, 0, playerLayer);
     }
+
+    
 }
 
 

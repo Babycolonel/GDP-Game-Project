@@ -514,6 +514,9 @@ MonoBehaviour:
   CatMaxHunger: 10
   CatMinHunger: 0
   CatCurrentHunger: 0
+  hasFeed: 0
+  feedingTime: 10
+  FeedMultiplier: 1
   CatMaxHealth: 10
   CatMinHealth: 0
   CatCurrentHealth: 0
@@ -521,6 +524,7 @@ MonoBehaviour:
   Executed: 0
   HPB: {fileID: 1989752147149435608}
   HGB: {fileID: 1989752147505180568}
+  CM: {fileID: 0}
   playerCheck: {fileID: 5693335096113137466}
   playerLayer:
     serializedVersion: 2
