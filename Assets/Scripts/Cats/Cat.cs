@@ -31,6 +31,27 @@ public class Cat : MonoBehaviour
     public bool isPlayer;
 
 
+    void Awake()
+    {
+        //tagging the child game object (straycat1_orange)
+
+        Transform strayCatTransform1 = transform.Find("straycat1_orange"); // Find the straycat1_orange GameObject using its name
+        Transform strayCatTransform2 = transform.Find("straycat2_white");
+
+
+        if (strayCatTransform1 != null) // Check if the GameObject is found
+        {
+            // Change the tag of the straycat1_orange GameObject
+            strayCatTransform1.gameObject.tag = "cat";
+        }
+
+        if (strayCatTransform2 != null) // Check if the GameObject is found
+        {
+            // Change the tag of the straycat1_orange GameObject
+            strayCatTransform2.gameObject.tag = "cat";
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
