@@ -133,6 +133,7 @@ public class Cat : MonoBehaviour
             else
             {
                 hasFeed = false;
+                feedingLeft = 0;
             }
             
         }
