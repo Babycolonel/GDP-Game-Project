@@ -112,6 +112,14 @@ public class Cat : MonoBehaviour
     {
         onAnyCatDying.Invoke();
     }
+    void faint()
+    {
+        CatCurrentHealth -= Time.deltaTime;
+        //While reducing health it will slowly
+        //It will activate the listener in happiness script
+        Dying();
+        HPB.SetBar(CatCurrentHealth);
+    }
 
     // Update is called once per frame
     // This handles all the conditions 
@@ -129,11 +137,7 @@ public class Cat : MonoBehaviour
             //If not it will slowly reduce health
             else if (CatCurrentHealth > 0)
             {
-                CatCurrentHealth -= Time.deltaTime;
-                //While reducing health it will slowly
-                //It will activate the listener in happiness script
-                Dying();
-                HPB.SetBar(CatCurrentHealth);
+               faint();
             }
             else
             {
