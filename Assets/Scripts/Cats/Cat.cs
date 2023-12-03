@@ -9,6 +9,7 @@ public class Cat : MonoBehaviour
     public float CatMaxHunger = 10;
     public float CatMinHunger = 0;
     public float CatCurrentHunger;
+    public int CatMinRand;
     public bool hasFeed = false;
     public float feedingTime;
     public float feedingLeft;
@@ -19,8 +20,10 @@ public class Cat : MonoBehaviour
     public float CatCurrentHealth;
 
     public bool Isdead = false;
+    public bool IsDying = false;
     public bool Executed = false;
     public static UnityEvent onAnyCatDeath = new UnityEvent();
+    public static UnityEvent onAnyCatDying = new UnityEvent();
 
     public BarSetting HPB, HGB;
     public CatManager CM;
@@ -55,39 +58,43 @@ public class Cat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //This is the health
         CatCurrentHealth = CatMaxHealth;
         HPB.SetMaxBar(CatMaxHealth);
         HPB.SetBar(CatCurrentHealth);
         HPB.SetMinBar(CatMinHealth);
 
-        CatCurrentHunger = Random.Range(CatMinHunger + 5, CatMaxHunger + 1);
+        //This is the randomiser 
+        CatCurrentHunger = Random.Range(CatMinRand, CatMaxHunger + 1);
         HGB.SetMaxBar(CatMaxHunger);
         HGB.SetBar(CatCurrentHunger);
         HGB.SetMinBar(CatMinHunger);
 
-        Debug.Log(CatCurrentHunger);
-
+        //This is the event listener from cat manager
+        //So when the button is clicked, it will be send to here and execute "FeedCat" function
         CatManager.onFeedingCat.AddListener(FeedCat);
     }
 
+    //Feed cat is the executed function
     public void FeedCat()
     {
-        if (isPlayer)
+        if ((isPlayer) && (Isdead == false))
         {
             hasFeed = true;
         }
         
     }
 
+    //Increase hunger is just a UI thing
     public void IncreaseHunger(float value)
     {
         if (Isdead == false)
         {
             CatCurrentHunger += value;
 
-            if (CatCurrentHunger > 100)
+            if (CatCurrentHunger > CatMaxHunger)
             {
-                CatCurrentHunger = 100;
+                CatCurrentHunger = CatMaxHunger;
             }
 
             HGB.SetBar(CatCurrentHunger);
@@ -95,51 +102,75 @@ public class Cat : MonoBehaviour
         
     }
 
+    //This will send send the listener to the happiness system to deduct happiness
     void Die()
     {
         onAnyCatDeath.Invoke();
     }
+    //This will send send the listener to the happiness system to slowly deduct happiness by time
+    void Dying()
+    {
+        onAnyCatDying.Invoke();
+    }
 
     // Update is called once per frame
+    // This handles all the conditions 
     void Update()
     {
+        //This check if the cat is dead and if it is being fed
         if ((Isdead == false)&&(hasFeed == false))
         {
+            //It will then slowly reduce hunger
             if (CatCurrentHunger > 0)
             {
                 CatCurrentHunger -= Time.deltaTime;
                 HGB.SetBar(CatCurrentHunger);
             }
+            //If not it will slowly reduce health
             else if (CatCurrentHealth > 0)
             {
                 CatCurrentHealth -= Time.deltaTime;
+                //While reducing health it will slowly
+                //It will activate the listener in happiness script
+                Dying();
                 HPB.SetBar(CatCurrentHealth);
             }
             else
             {
+                //This is when the health is at 0
+                //running the death condition
                 CatCurrentHealth = 0;
                 HPB.SetBar(CatCurrentHealth);
                 Isdead = true;
+                //Executed is to prevent it to keep running
                 Executed = false;
             }
         }
+        //This is when the cat is feeding
         else if (hasFeed == true)
         {
+            //Feeding time is how much time have lapsed
             feedingLeft += Time.deltaTime;
+            //This checks if there is still time left
             if (feedingLeft <= feedingTime) 
             {
+                //if yes then it will slowly increase
                 IncreaseHunger(Time.deltaTime * FeedMultiplier);    
             }
             else
             {
+                //or else it will just stop and reset the timer
                 hasFeed = false;
                 feedingLeft = 0;
             }
             
         }
+        //This is the death script
         else if (Executed == false)
         {
+            //it runs the listener
             Die();
+            //And prevents it to be executed again
             Executed = true;
         }
         else { }

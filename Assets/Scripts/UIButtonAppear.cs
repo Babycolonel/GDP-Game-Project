@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UIButtonAppear : MonoBehaviour
 {
+    private Cat cat;
+
     [SerializeField] GameObject CatInteractButtons;
     private void OnTriggerEnter2D(Collider2D collision)
     {
