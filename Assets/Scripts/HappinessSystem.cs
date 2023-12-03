@@ -9,6 +9,7 @@ public class HappinessSystem : MonoBehaviour
     public float maxHappiness = 100;
     public float minHappiness = 0;
     public float currentHappiness;
+    public int currentHappinessDisplay;
 
     public TMP_Text percentage; //percentage text
     public BarSetting HB; //class or variable used to call functions from the happiness bar script
@@ -24,6 +25,7 @@ public class HappinessSystem : MonoBehaviour
         percentage.text = currentHappiness + "%";
 
         Cat.onAnyCatDeath.AddListener(DeductHappiness);
+        Cat.onAnyCatDying.AddListener(ReducingHappiness);
     }
     
     
@@ -37,7 +39,7 @@ public class HappinessSystem : MonoBehaviour
         }
 
         HB.SetBar(currentHappiness);
-        percentage.text = currentHappiness + "%";
+        percentage.text = currentHappinessDisplay + "%";
     }
     public void MinusHappiness(float value) //for happiness bar decreases
     {
@@ -49,16 +51,20 @@ public class HappinessSystem : MonoBehaviour
         }
 
         HB.SetBar(currentHappiness);
-        percentage.text = currentHappiness + "%";
+        percentage.text = currentHappinessDisplay + "%";
     }
 
     public void DeductHappiness()
     {
         MinusHappiness(10);
     }
+    public void ReducingHappiness()
+    {
+        MinusHappiness(Time.deltaTime);
+    }
     void Update()
     {
         HB.SetBar(currentHappiness);
-        
+        currentHappinessDisplay = Mathf.RoundToInt(currentHappiness);
     }
 }
