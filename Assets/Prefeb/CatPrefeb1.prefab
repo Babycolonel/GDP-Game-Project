@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 1989752147958345579}
   m_Layer: 0
   m_Name: CatPrefeb1
-  m_TagString: Untagged
+  m_TagString: cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,11 +516,13 @@ MonoBehaviour:
   CatCurrentHunger: 0
   hasFeed: 0
   feedingTime: 10
+  feedingLeft: 0
   FeedMultiplier: 1
   CatMaxHealth: 10
   CatMinHealth: 0
   CatCurrentHealth: 0
   Isdead: 0
+  IsDying: 0
   Executed: 0
   HPB: {fileID: 1989752147149435608}
   HGB: {fileID: 1989752147505180568}
