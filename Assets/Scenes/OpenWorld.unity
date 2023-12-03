@@ -1281,7 +1281,7 @@ GameObject:
   - component: {fileID: 889678582}
   - component: {fileID: 889678583}
   m_Layer: 0
-  m_Name: CatSpawner (1)
+  m_Name: CatSpawner Legacy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1311,13 +1311,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 889678581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd2ba87982b2d849999b830a9476894, type: 3}
+  m_Script: {fileID: 11500000, guid: 62818509de00a55418ca2714108f4584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cats:
   - {fileID: 1989752147958345581, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
   - {fileID: 7216906392117751861, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
-  initialSpawnTime: 5
+  initialSpawnTime: 3
   spawnLimit: 1
 --- !u!1 &917300866
 GameObject:
@@ -2033,12 +2033,12 @@ GameObject:
   - component: {fileID: 1356325646}
   - component: {fileID: 1356325645}
   m_Layer: 0
-  m_Name: CatSpawner
+  m_Name: CatSpawner prototype
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1356325645
 MonoBehaviour:
   m_ObjectHideFlags: 0
