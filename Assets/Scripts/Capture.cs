@@ -26,9 +26,13 @@ public class Capture : MonoBehaviour
 
 
         }
+        else
+        {
+            RespawnCat();
+        }
     }
 
-    public void DeleteCat()
+    public void RespawnCat()
     {
 
     }
