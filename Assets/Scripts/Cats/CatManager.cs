@@ -7,6 +7,7 @@ public class CatManager : MonoBehaviour
 {
     
     public static UnityEvent onFeedingCat = new UnityEvent();
+    public static UnityEvent onCaptureCat = new UnityEvent();
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +28,15 @@ public class CatManager : MonoBehaviour
     void Feed()
     {
         onFeedingCat.Invoke();
+    }
+
+    public void OnClickCapture()
+    {
+        Captured();
+    }
+
+    void Captured()
+    {
+        onCaptureCat.Invoke();
     }
 }

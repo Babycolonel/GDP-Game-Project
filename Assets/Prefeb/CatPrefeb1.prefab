@@ -474,6 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1989752147958345580}
   - component: {fileID: 1989752147958345579}
+  - component: {fileID: 8626268321694327653}
   m_Layer: 0
   m_Name: CatPrefeb1
   m_TagString: cat
@@ -514,7 +515,9 @@ MonoBehaviour:
   CatMaxHunger: 10
   CatMinHunger: 0
   CatCurrentHunger: 0
+  CatMinRand: 0
   hasFeed: 0
+  hasCapture: 0
   feedingTime: 10
   feedingLeft: 0
   FeedMultiplier: 1
@@ -532,6 +535,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   isPlayer: 0
+  Cap: {fileID: 8626268321694327653}
+--- !u!114 &8626268321694327653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989752147958345581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc8644a7c7135a4eb4d9626ecd57479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cat: {fileID: 1989752147958345579}
 --- !u!1 &1989752148699577072
 GameObject:
   m_ObjectHideFlags: 0

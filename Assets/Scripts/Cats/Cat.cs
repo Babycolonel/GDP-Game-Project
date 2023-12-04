@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,6 +12,7 @@ public class Cat : MonoBehaviour
     public float CatCurrentHunger;
     public int CatMinRand;
     public bool hasFeed = false;
+    public bool isCaptured = false;
     public float feedingTime;
     public float feedingLeft;
     public int FeedMultiplier;
@@ -32,7 +34,8 @@ public class Cat : MonoBehaviour
     public Transform playerCheck;
     public LayerMask playerLayer;
     public bool isPlayer;
-
+    //For Capturing system
+    public Capture Cap;
 
     void Awake()
     {
@@ -73,6 +76,9 @@ public class Cat : MonoBehaviour
         //This is the event listener from cat manager
         //So when the button is clicked, it will be send to here and execute "FeedCat" function
         CatManager.onFeedingCat.AddListener(FeedCat);
+
+        //For capturing
+        CatManager.onCaptureCat.AddListener(Cap.CaptureCat);
     }
 
     //Feed cat is the executed function
@@ -84,6 +90,7 @@ public class Cat : MonoBehaviour
         }
         
     }
+    //Cat capture function
 
     //Increase hunger is just a UI thing
     public void IncreaseHunger(float value)
@@ -177,7 +184,6 @@ public class Cat : MonoBehaviour
             //And prevents it to be executed again
             Executed = true;
         }
-        else { }
     }
     void FixedUpdate()
     {
