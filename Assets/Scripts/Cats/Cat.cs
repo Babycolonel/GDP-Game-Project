@@ -80,6 +80,36 @@ public class Cat : MonoBehaviour
         //For capturing
         CatManager.onCaptureCat.AddListener(Cap.CaptureCat);
     }
+    public void InitializeCat(float initialHunger, float initialHealth, Sprite catSprite)
+    {
+        CatCurrentHunger = initialHunger;
+        CatCurrentHealth = initialHealth;
+
+        // Set other initial properties as needed
+
+        // Set the cat sprite
+        SetCatSprite(catSprite);
+
+        // Update UI or other components based on initial values
+        HGB.SetBar(CatCurrentHunger);
+        HPB.SetBar(CatCurrentHealth);
+    }
+
+    // Method to set the cat sprite
+    private void SetCatSprite(Sprite catSprite)
+    {
+        
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = catSprite;
+        }
+        else
+        {
+            Debug.LogError("SpriteRenderer component not found on the cat GameObject.");
+        }
+    }
 
     //Feed cat is the executed function
     public void FeedCat()
