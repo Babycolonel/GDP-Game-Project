@@ -1498,7 +1498,6 @@ MonoBehaviour:
   - {fileID: 7216906392117751861, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
   initialSpawnTime: 3
   spawnLimit: 1
-  speed: 0
 --- !u!54 &889678584
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3528,6 +3527,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1989752148725364637, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -497837895, guid: dea1b465766f58c4c9a2cb6cc87aa08f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
 --- !u!1001 &7216906390321161567
@@ -3549,6 +3552,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 7216906391843086256, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -553718188, guid: 96bc7e144a2e9534e962f2d274c0efc8, type: 3}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: playerCheck
       value: 
