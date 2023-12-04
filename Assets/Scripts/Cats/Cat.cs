@@ -19,6 +19,8 @@ public class Cat : MonoBehaviour
     public float CatMinHealth = 0;
     public float CatCurrentHealth;
 
+    private bool IsFaint = false;
+
     public bool Isdead = false;
     public bool IsDying = false;
     public bool Executed = false;
@@ -33,6 +35,8 @@ public class Cat : MonoBehaviour
     public LayerMask playerLayer;
     public bool isPlayer;
 
+    //animator
+    public Animator animator;
 
     void Awake()
     {
@@ -114,6 +118,9 @@ public class Cat : MonoBehaviour
     }
     void faint()
     {
+        IsFaint = true;
+        animator.SetBool("Faint", true);
+
         CatCurrentHealth -= Time.deltaTime;
         //While reducing health it will slowly
         //It will activate the listener in happiness script
@@ -137,7 +144,7 @@ public class Cat : MonoBehaviour
             //If not it will slowly reduce health
             else if (CatCurrentHealth > 0)
             {
-               faint();
+                faint();
             }
             else
             {
@@ -153,6 +160,10 @@ public class Cat : MonoBehaviour
         //This is when the cat is feeding
         else if (hasFeed == true)
         {
+            IsFaint = false;
+            animator.SetBool("Faint", false);
+            animator.SetBool("Feeding", true);
+
             //Feeding time is how much time have lapsed
             feedingLeft += Time.deltaTime;
             //This checks if there is still time left
@@ -166,6 +177,8 @@ public class Cat : MonoBehaviour
                 //or else it will just stop and reset the timer
                 hasFeed = false;
                 feedingLeft = 0;
+
+                animator.SetBool("Feeding", false);
             }
             
         }
