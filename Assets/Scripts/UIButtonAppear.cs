@@ -17,14 +17,6 @@ public class UIButtonAppear : MonoBehaviour
             Debug.Log("cat feed on");
             CatInteractButtons.SetActive(true);
             CatCaptureButtons.SetActive(true);
-            if (cat != null)
-            {
-                if (cat.isCaptured)
-                {
-                    CatCaptureButtons.SetActive(false);
-                }
-            }
-
         }
     }
 
@@ -38,21 +30,6 @@ public class UIButtonAppear : MonoBehaviour
             CatInteractButtons.SetActive(false);
             CatCaptureButtons.SetActive(false);
 
-        }
-        if (cat != null)
-        {
-            if (cat.isCaptured)
-            {
-                CatCaptureButtons.SetActive(true);
-            }
-            else
-            {
-                CatCaptureButtons.SetActive(false);
-            }
-        }
-        else if (cat.isCaptured)
-        {
-            CatCaptureButtons.SetActive(true);
         }
     }
 
