@@ -760,7 +760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cat: {fileID: 0}
-  cap: {fileID: 0}
   CatInteractButtons: {fileID: 393342009}
   CatCaptureButtons: {fileID: 1449705382}
 --- !u!114 &186118428
@@ -3439,6 +3438,7 @@ GameObject:
   - component: {fileID: 1957610159}
   - component: {fileID: 1957610158}
   - component: {fileID: 1957610157}
+  - component: {fileID: 1957610161}
   m_Layer: 5
   m_Name: MainUI
   m_TagString: Untagged
@@ -3532,6 +3532,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1957610161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957610156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6d1d43478e5b047b442555b09ddf96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cat: {fileID: 1458496404}
+  CatInteractButtons: {fileID: 393342009}
+  CatCaptureButtons: {fileID: 1449705382}
 --- !u!1 &1968751685
 GameObject:
   m_ObjectHideFlags: 0
@@ -4089,6 +4104,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8626268321694327653, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 186118421}
+    - target: {fileID: 8626268321694327653, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: specificCatSprite
+      value: 
+      objectReference: {fileID: -798353760, guid: dea1b465766f58c4c9a2cb6cc87aa08f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
 --- !u!1001 &7216906390321161567

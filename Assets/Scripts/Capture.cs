@@ -18,7 +18,6 @@ public class CatData
         health = healthValue;
     }
 }
-
 public class Capture : MonoBehaviour
 {
     public Cat cat;
@@ -27,6 +26,7 @@ public class Capture : MonoBehaviour
     public Sprite specificCatSprite;
     // List to store captured cat data
     private List<CatData> capturedCats = new List<CatData>();
+
     void Start()
     {
         cat.isCaptured = false;
@@ -41,36 +41,35 @@ public class Capture : MonoBehaviour
             Debug.LogError("Player not found in the scene. Assign the playerTransform manually in the Unity Editor.");
         }
     }
+
     public void CaptureCat()
     {
         currentCat = cat;
         Debug.Log("before check");
         if (currentCat != null && !currentCat.isCaptured && currentCat.isPlayer && !currentCat.Isdead)
         {
-            
             currentCat.isCaptured = true;
             Debug.Log("Captured: " + cat.name);
 
-            float currentHunger = cat.CatCurrentHunger;
-            float currentHealth = cat.CatCurrentHealth;
+            float currentHunger = currentCat.CatCurrentHunger;
+            float currentHealth = currentCat.CatCurrentHealth;
 
             // Log cat values
             Debug.Log("Current Hunger: " + currentHunger);
             Debug.Log("Current Health: " + currentHealth);
 
-
-            CatData catData = new CatData(cat.name, currentHunger, currentHealth);
+            CatData catData = new CatData(currentCat.name, currentHunger, currentHealth);
             capturedCats.Add(catData);
 
             StoreCat(catData);
-            
+
+            // Disable the original cat
             currentCat.gameObject.SetActive(false);
         }
-        
-        else if(currentCat != null && currentCat.isCaptured)
+        else if (currentCat != null && currentCat.isCaptured)
         {
             Debug.Log("working");
-            
+
             RespawnCat(currentCat.CatCurrentHunger, currentCat.CatCurrentHealth);
         }
         Debug.Log("After check");
@@ -78,7 +77,6 @@ public class Capture : MonoBehaviour
 
     private void StoreCat(CatData capturedCatData)
     {
-
         Debug.Log("Stored cat data - Name: " + capturedCatData.catName + ", Hunger: " + capturedCatData.hunger + ", Health: " + capturedCatData.health);
     }
 
@@ -87,15 +85,15 @@ public class Capture : MonoBehaviour
         if (cat != null)
         {
             Vector3 spawnPosition = playerTransform.position;
-            // Instantiate a new cat
-            Cat newCat = Instantiate(cat, spawnPosition, Quaternion.identity);
 
-            // Initialize the cat with specific hunger, health, and sprite values
+            // Instantiate a new cat as a child of the current GameObject (this.gameObject)
+            Cat newCat = Instantiate(cat, spawnPosition, Quaternion.identity, this.gameObject.transform);
+
+            // Initialize the new cat with specific hunger, health, and sprite values
             newCat.InitializeCat(initialHunger, initialHealth, specificCatSprite);
-            currentCat.gameObject.SetActive(true);
-            // Set the new cat as the last captured cat
-            currentCat = newCat;
 
+            // Activate the new cat
+            newCat.gameObject.SetActive(true);
         }
         else
         {
