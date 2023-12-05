@@ -23,7 +23,7 @@ public class Capture : MonoBehaviour
     public Cat cat;
     private Cat currentCat;
     public Transform playerTransform;
-    public Sprite specificCatSprite;
+
     // List to store captured cat data
     private List<CatData> capturedCats = new List<CatData>();
 
@@ -93,7 +93,7 @@ public class Capture : MonoBehaviour
             // Move the original cat to the player's position
             cat.transform.position = playerTransform.position;
 
-
+    
             // Activate the original cat
             cat.gameObject.SetActive(true);
         }
