@@ -1,25 +1,58 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIButtonAppear : MonoBehaviour
 {
-    private Cat cat;
+    public Cat cat;
+    //public Capture cap;
 
     [SerializeField] GameObject CatInteractButtons;
-    private void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] GameObject CatCaptureButtons;
+    private void Start()
     {
-        if (collision.CompareTag("cat"))
-        {
-            CatInteractButtons.SetActive(true);
-        }
+        // Subscribe to the cat capture event
+        CatManager.onCaptureCat.AddListener(OnCaptureCat);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnDisable()
     {
+        // Unsubscribe from the cat capture event to prevent memory leaks
+        CatManager.onCaptureCat.RemoveListener(OnCaptureCat);
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Entered trigger zone");
         if (collision.CompareTag("cat"))
         {
-            CatInteractButtons.SetActive(false);
+            Debug.Log("cat feed on");
+            CatInteractButtons.SetActive(true);
+            CatCaptureButtons.SetActive(true);
         }
+    }
+    private void OnCaptureCat()
+    {
+        // Activate the CatCaptureButtons when a cat is captured
+        CatCaptureButtons.SetActive(true);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("Left trigger zone");
+        if (collision.CompareTag("cat"))
+        {
+            Debug.Log("cat feed off");
+            CatInteractButtons.SetActive(false);
+            if (CatManager.onCaptureCat.GetPersistentEventCount() > 0)
+            {
+                // If there are subscribers, activate the CatCaptureButtons
+                CatCaptureButtons.SetActive(true);
+            }
+            else
+            {
+                // If there are no subscribers, do something else or nothing
+                CatCaptureButtons.SetActive(false);
+            }
+        }
+
     }
 }

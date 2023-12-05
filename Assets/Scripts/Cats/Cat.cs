@@ -11,6 +11,7 @@ public class Cat : MonoBehaviour
     public float CatCurrentHunger;
     public int CatMinRand;
     public bool hasFeed = false;
+    public bool isCaptured = false;
     public float feedingTime;
     public float feedingLeft;
     public int FeedMultiplier;
@@ -34,6 +35,9 @@ public class Cat : MonoBehaviour
     public Transform playerCheck;
     public LayerMask playerLayer;
     public bool isPlayer;
+
+    //For Capturing system
+    public Capture Cap;
 
     //animator
     public Animator animator;
@@ -77,8 +81,46 @@ public class Cat : MonoBehaviour
         //This is the event listener from cat manager
         //So when the button is clicked, it will be send to here and execute "FeedCat" function
         CatManager.onFeedingCat.AddListener(FeedCat);
+
+        //For capturing
+        CatManager.onCaptureCat.AddListener(Cap.CaptureCat);
+    }
+    public void InitializeCat(float initialHunger, float initialHealth, Sprite catSprite)
+    {
+        CatCurrentHunger = initialHunger;
+        CatCurrentHealth = initialHealth;
+
+        // Set other initial properties as needed
+
+        // Set the cat sprite
+        SetCatSprite(catSprite);
+
+        // Update UI or other components based on initial values
+        HGB.SetBar(CatCurrentHunger);
+        HPB.SetBar(CatCurrentHealth);
     }
 
+    // Method to set the cat sprite
+    private void SetCatSprite(Sprite catSprite)
+    {
+
+        Animator animator = GetComponent<Animator>();
+
+        if (animator != null)
+        {
+            // Find the SpriteRenderer in children
+            SpriteRenderer spriteRenderer = animator.GetComponentInChildren<SpriteRenderer>();
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sprite = catSprite;
+            }
+            else
+            {
+                Debug.LogError("SpriteRenderer component not found on the cat GameObject.");
+            }
+        }
+    }
     //Feed cat is the executed function
     public void FeedCat()
     {
@@ -86,7 +128,7 @@ public class Cat : MonoBehaviour
         {
             hasFeed = true;
         }
-        
+
     }
 
     //Increase hunger is just a UI thing
@@ -103,7 +145,7 @@ public class Cat : MonoBehaviour
 
             HGB.SetBar(CatCurrentHunger);
         }
-        
+
     }
 
     //This will send send the listener to the happiness system to deduct happiness
@@ -133,7 +175,7 @@ public class Cat : MonoBehaviour
     void Update()
     {
         //This check if the cat is dead and if it is being fed
-        if ((Isdead == false)&&(hasFeed == false))
+        if ((Isdead == false) && (hasFeed == false))
         {
             //It will then slowly reduce hunger
             if (CatCurrentHunger > 0)
@@ -167,10 +209,10 @@ public class Cat : MonoBehaviour
             //Feeding time is how much time have lapsed
             feedingLeft += Time.deltaTime;
             //This checks if there is still time left
-            if (feedingLeft <= feedingTime) 
+            if (feedingLeft <= feedingTime)
             {
                 //if yes then it will slowly increase
-                IncreaseHunger(Time.deltaTime * FeedMultiplier);    
+                IncreaseHunger(Time.deltaTime * FeedMultiplier);
             }
             else
             {
@@ -180,7 +222,7 @@ public class Cat : MonoBehaviour
 
                 animator.SetBool("Feeding", false);
             }
-            
+
         }
         //This is the death script
         else if (Executed == false)
@@ -197,7 +239,5 @@ public class Cat : MonoBehaviour
         isPlayer = Physics2D.OverlapCapsule(playerCheck.position, new Vector2(2.5f, 2.5f), CapsuleDirection2D.Vertical, 0, playerLayer);
     }
 
-    
+
 }
-
-
