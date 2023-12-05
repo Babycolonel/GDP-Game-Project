@@ -7,6 +7,7 @@ public class CatManager : MonoBehaviour
 {
     
     public static UnityEvent onFeedingCat = new UnityEvent();
+    public static UnityEvent onHealCat = new UnityEvent();
     // Start is called before the first frame update
     void Start()
     {
@@ -28,4 +29,15 @@ public class CatManager : MonoBehaviour
     {
         onFeedingCat.Invoke();
     }
+
+    public void OnClickHeal()
+    {
+        Heal();
+    }
+
+    void Heal()
+    {
+        onHealCat.Invoke();
+    }
+
 }

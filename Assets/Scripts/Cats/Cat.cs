@@ -77,6 +77,10 @@ public class Cat : MonoBehaviour
         //This is the event listener from cat manager
         //So when the button is clicked, it will be send to here and execute "FeedCat" function
         CatManager.onFeedingCat.AddListener(FeedCat);
+
+        //for healing
+        CatManager.onHealCat.AddListener(HealCat);
+
     }
 
     //Feed cat is the executed function
@@ -88,6 +92,16 @@ public class Cat : MonoBehaviour
         }
         
     }
+
+    //function to heal the cat
+    public void HealCat()
+    {
+        if ((isPlayer) && (Isdead == false))
+        {
+            CatCurrentHealth = CatMaxHealth;
+        }
+    }
+
 
     //Increase hunger is just a UI thing
     public void IncreaseHunger(float value)
