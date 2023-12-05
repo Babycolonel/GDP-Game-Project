@@ -176,6 +176,7 @@ public class Cat : MonoBehaviour
             }
             
         }
+
         //This is the death script
         else if (Executed == false)
         {
@@ -184,6 +185,8 @@ public class Cat : MonoBehaviour
             //And prevents it to be executed again
             Executed = true;
         }
+
+    
     }
     void FixedUpdate()
     {
