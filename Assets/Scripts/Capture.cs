@@ -46,9 +46,10 @@ public class Capture : MonoBehaviour
     {
         currentCat = cat;
         Debug.Log("before check");
-        if (currentCat != null && !currentCat.isCaptured && currentCat.isPlayer && !currentCat.Isdead)
+        if (currentCat != null && !currentCat.isCaptured && !cat.isCaptured && currentCat.isPlayer && !currentCat.Isdead)
         {
             currentCat.isCaptured = true;
+            cat.isCaptured = true;
             Debug.Log("Captured: " + cat.name);
 
             float currentHunger = currentCat.CatCurrentHunger;
@@ -66,7 +67,7 @@ public class Capture : MonoBehaviour
             // Disable the original cat
             currentCat.gameObject.SetActive(false);
         }
-        else if (currentCat != null && currentCat.isCaptured)
+        else if (cat != null && currentCat.isCaptured && cat.isCaptured)
         {
             Debug.Log("working");
 
@@ -84,16 +85,20 @@ public class Capture : MonoBehaviour
     {
         if (cat != null)
         {
-            Vector3 spawnPosition = playerTransform.position;
+            cat.isCaptured = false;
+            currentCat.isCaptured = false;
+            // Deactivate the original cat
+            cat.gameObject.SetActive(false);
 
-            // Instantiate a new cat as a child of the current GameObject (this.gameObject)
-            Cat newCat = Instantiate(cat, spawnPosition, Quaternion.identity, this.gameObject.transform);
+            // Move the original cat to the player's position
+            cat.transform.position = playerTransform.position;
 
-            // Initialize the new cat with specific hunger, health, and sprite values
-            newCat.InitializeCat(initialHunger, initialHealth, specificCatSprite);
 
-            // Activate the new cat
-            newCat.gameObject.SetActive(true);
+            // Initialize the cat with specific hunger, health, and sprite values
+            cat.InitializeCat(initialHunger, initialHealth, specificCatSprite);
+
+            // Activate the original cat
+            cat.gameObject.SetActive(true);
         }
         else
         {
