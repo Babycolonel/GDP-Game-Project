@@ -42,6 +42,9 @@ public class Cat : MonoBehaviour
     //animator
     public Animator animator;
 
+    //food script to decrease the amount of food player has
+    public Food food;
+
     void Awake()
     {
         //tagging the child game object (straycat1_orange)
@@ -124,8 +127,10 @@ public class Cat : MonoBehaviour
     //Feed cat is the executed function
     public void FeedCat()
     {
-        if ((isPlayer) && (Isdead == false))
+        if ((isPlayer) && (Isdead == false) && (food.currentFood > 0) && (hasFeed == false))
         {
+            food.currentFood -= 1;
+            food.foodText.text = food.currentFood + "/5";
             hasFeed = true;
         }
 
