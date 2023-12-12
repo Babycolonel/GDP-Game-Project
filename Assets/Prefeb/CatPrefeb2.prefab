@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7956067299976398519}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: playerCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7216906390450215307}
   - component: {fileID: 7216906390450215305}
   - component: {fileID: 7216906390450215306}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 7216906390695093791}
   - component: {fileID: 7216906390695093857}
   - component: {fileID: 7216906390695093858}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Hungerbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 7216906391281691648}
   - component: {fileID: 7216906391281691649}
   - component: {fileID: 7216906391281691650}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HP&HungerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 7216906391546065293}
   - component: {fileID: 7216906391546065294}
   - component: {fileID: 7216906391546065291}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HPBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,8 @@ GameObject:
   - component: {fileID: 7216906391843086257}
   - component: {fileID: 7216906391843086256}
   - component: {fileID: 7216906391843086255}
-  m_Layer: 0
+  - component: {fileID: 274892529}
+  m_Layer: 7
   m_Name: straycat2_white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +570,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1a7d642a97699f0488f7a9c09b63b941, type: 3}
+  m_Sprite: {fileID: -553718188, guid: 96bc7e144a2e9534e962f2d274c0efc8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -619,6 +620,27 @@ PolygonCollider2D:
       - {x: 0.25735116, y: -0.09183779}
       - {x: 0.27503595, y: -0.042243317}
       - {x: 0.26455852, y: -0.014009204}
+--- !u!95 &274892529
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216906391843086258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99d7184ba7d5aea41b0d7785de6e3dff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7216906392117751861
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +651,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7216906392117751860}
   - component: {fileID: 7216906392117751859}
-  m_Layer: 0
+  - component: {fileID: 1454547722}
+  m_Layer: 7
   m_Name: CatPrefeb2
   m_TagString: cat
   m_Icon: {fileID: 0}
@@ -669,7 +692,9 @@ MonoBehaviour:
   CatMaxHunger: 10
   CatMinHunger: 0
   CatCurrentHunger: 0
+  CatMinRand: 0
   hasFeed: 0
+  isCaptured: 0
   feedingTime: 10
   feedingLeft: 0
   FeedMultiplier: 1
@@ -687,6 +712,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   isPlayer: 0
+  Cap: {fileID: 1454547722}
+  animator: {fileID: 274892529}
+  food: {fileID: 0}
+--- !u!114 &1454547722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216906392117751861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc8644a7c7135a4eb4d9626ecd57479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cat: {fileID: 7216906392117751859}
+  playerTransform: {fileID: 0}
 --- !u!1 &7216906392242644873
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,7 +740,7 @@ GameObject:
   - component: {fileID: 7216906392242644872}
   - component: {fileID: 7216906392242644870}
   - component: {fileID: 7216906392242644871}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}

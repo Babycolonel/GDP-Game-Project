@@ -13,6 +13,8 @@ public class CatSpawnLegacy : MonoBehaviour
 
     private float spawnTime;
 
+    private GameObject spawnedCat, player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,10 @@ public class CatSpawnLegacy : MonoBehaviour
             if (spawnTime <= 0)
             {
                 // Instantiate a random cat from the array
-                Instantiate(cats[Random.Range(0, cats.Length)], transform.position, Quaternion.identity);
+                spawnedCat = Instantiate(cats[Random.Range(0, cats.Length)], transform.position, Quaternion.identity);
+                player = GameObject.Find("Player");
+                spawnedCat.gameObject.GetComponent<Cat>().food = player.gameObject.GetComponent<Food>();
+                spawnedCat.gameObject.GetComponent<Capture>().playerTransform = player.gameObject.GetComponent<Transform>();
 
                 // Reset spawn time and decrement spawn limit
                 spawnTime = initialSpawnTime;
