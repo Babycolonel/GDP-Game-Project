@@ -44,6 +44,8 @@ public class Cat : MonoBehaviour
 
     //food script to decrease the amount of food player has
     public Food food;
+    //food store script to update the food store ui text showing food amount
+    public FoodStore foodstore;
 
     void Awake()
     {
@@ -131,6 +133,9 @@ public class Cat : MonoBehaviour
         {
             food.currentFood -= 1;
             food.foodText.text = food.currentFood + "/5";
+
+            foodstore.foodLeftText.text = $"Food Left: {food.currentFood}/{food.maxFood}"; //update the food store ui
+
             hasFeed = true;
         }
 
@@ -168,7 +173,8 @@ public class Cat : MonoBehaviour
         IsFaint = true;
         animator.SetBool("Faint", true);
 
-        CatCurrentHealth -= Time.deltaTime;
+        CatCurrentHealth -= Time.deltaTime; //hp slowly draining when cat faint
+
         //While reducing health it will slowly
         //It will activate the listener in happiness script
         Dying();
