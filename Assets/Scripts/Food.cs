@@ -19,12 +19,6 @@ public class Food : MonoBehaviour
         foodText.text = currentFood + "/5";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // public void useFood()
     // {
     //     return currentFood - 1;

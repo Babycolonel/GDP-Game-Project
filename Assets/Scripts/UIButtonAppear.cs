@@ -7,6 +7,8 @@ public class UIButtonAppear : MonoBehaviour
 
     [SerializeField] GameObject CatInteractButtons;
     [SerializeField] GameObject CatCaptureButtons;
+    [SerializeField] GameObject FoodstoreUI;
+
     private void Start()
     {
         // Subscribe to the cat capture event
@@ -22,12 +24,15 @@ public class UIButtonAppear : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Entered trigger zone");
         if (collision.CompareTag("cat"))
         {
-            Debug.Log("cat feed on");
             CatInteractButtons.SetActive(true);
             CatCaptureButtons.SetActive(true);
+        }
+
+        if (collision.CompareTag("foodstore"))
+        {
+            FoodstoreUI.SetActive(true);
         }
     }
     private void OnCaptureCat()
@@ -37,10 +42,8 @@ public class UIButtonAppear : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Left trigger zone");
         if (collision.CompareTag("cat"))
         {
-            Debug.Log("cat feed off");
             CatInteractButtons.SetActive(false);
             if (CatManager.onCaptureCat.GetPersistentEventCount() > 0)
             {
@@ -54,5 +57,9 @@ public class UIButtonAppear : MonoBehaviour
             }
         }
 
+        if (collision.CompareTag("foodstore"))
+        {
+            FoodstoreUI.SetActive(false);
+        }
     }
 }
