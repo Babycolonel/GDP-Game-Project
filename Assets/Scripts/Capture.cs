@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
 public class CatData
 {
     public string catName;
@@ -23,6 +22,9 @@ public class Capture : MonoBehaviour
     public Cat cat;
     private Cat currentCat;
     public Transform playerTransform;
+
+    //get the player's info to check if they are carrying a cat
+    public PlayerInfo player;
 
     // List to store captured cat data
     private List<CatData> capturedCats = new List<CatData>();
@@ -66,6 +68,10 @@ public class Capture : MonoBehaviour
 
             // Disable the original cat
             currentCat.gameObject.SetActive(false);
+            //change has cat to true so that the game knows the player has a cat
+            player.hasCat = true;
+            player.capturedCat = gameObject;
+            
         }
         else if (cat != null && currentCat.isCaptured && cat.isCaptured)
         {
@@ -83,7 +89,7 @@ public class Capture : MonoBehaviour
 
     public void RespawnCat(float initialHunger, float initialHealth)
     {
-        if (cat != null)
+        if (cat != null && gameObject == player.capturedCat)
         {
             cat.isCaptured = false;
             currentCat.isCaptured = false;
@@ -96,6 +102,10 @@ public class Capture : MonoBehaviour
     
             // Activate the original cat
             cat.gameObject.SetActive(true);
+
+            //change has cat to false so that the game knows the player does not have a cat
+            player.hasCat = false;
+            player.capturedCat = null;
         }
         else
         {

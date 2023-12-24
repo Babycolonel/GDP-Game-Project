@@ -20,7 +20,7 @@ public class Cat : MonoBehaviour
     public float CatMinHealth = 0;
     public float CatCurrentHealth;
 
-    private bool IsFaint = false;
+    public bool IsFaint = false;
 
     public bool Isdead = false;
     public bool IsDying = false;
@@ -185,6 +185,9 @@ public class Cat : MonoBehaviour
     // This handles all the conditions 
     void Update()
     {
+        //ensures that the cat's health bar is constantly updated so that it will be updated when healed
+        HPB.SetBar(CatCurrentHealth);
+
         //This check if the cat is dead and if it is being fed
         if ((Isdead == false) && (hasFeed == false))
         {

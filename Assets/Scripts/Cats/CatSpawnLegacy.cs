@@ -36,6 +36,7 @@ public class CatSpawnLegacy : MonoBehaviour
                 player = GameObject.Find("Player");
                 spawnedCat.gameObject.GetComponent<Cat>().food = player.gameObject.GetComponent<Food>();
                 spawnedCat.gameObject.GetComponent<Capture>().playerTransform = player.gameObject.GetComponent<Transform>();
+                spawnedCat.gameObject.GetComponent<Capture>().player = player.gameObject.GetComponent<PlayerInfo>();
 
                 // Reset spawn time and decrement spawn limit
                 spawnTime = initialSpawnTime;
