@@ -8,6 +8,10 @@ public class UIButtonAppear : MonoBehaviour
     [SerializeField] GameObject CatInteractButtons;
     [SerializeField] GameObject CatCaptureButtons;
     [SerializeField] GameObject FoodstoreUI;
+    [SerializeField] GameObject VetUI;
+
+    public PlayerInfo player;
+    private bool isNearCat = false;
 
     private void Start()
     {
@@ -28,11 +32,17 @@ public class UIButtonAppear : MonoBehaviour
         {
             CatInteractButtons.SetActive(true);
             CatCaptureButtons.SetActive(true);
+            isNearCat = true;
         }
 
         if (collision.CompareTag("foodstore"))
         {
             FoodstoreUI.SetActive(true);
+        }
+
+        if (collision.CompareTag("vet"))
+        {
+            VetUI.SetActive(true);
         }
     }
     private void OnCaptureCat()
@@ -42,9 +52,11 @@ public class UIButtonAppear : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        isNearCat = false;
         if (collision.CompareTag("cat"))
         {
             CatInteractButtons.SetActive(false);
+            
             if (CatManager.onCaptureCat.GetPersistentEventCount() > 0)
             {
                 // If there are subscribers, activate the CatCaptureButtons
@@ -60,6 +72,23 @@ public class UIButtonAppear : MonoBehaviour
         if (collision.CompareTag("foodstore"))
         {
             FoodstoreUI.SetActive(false);
+        }
+
+        if (collision.CompareTag("vet"))
+        {
+            VetUI.SetActive(false);
+        }
+    }
+
+    void Update()
+    {
+        if (player.hasCat || isNearCat)
+        {
+            CatCaptureButtons.SetActive(true);
+        }
+        else
+        {
+            CatCaptureButtons.SetActive(false);
         }
     }
 }
