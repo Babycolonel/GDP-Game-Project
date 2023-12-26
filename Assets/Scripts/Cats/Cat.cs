@@ -18,7 +18,9 @@ public class Cat : MonoBehaviour
 
     public float CatMaxHealth = 10;
     public float CatMinHealth = 0;
-    public float CatCurrentHealth;
+    public float CatCurrentHealth; 
+    public float duration = 2f;  // Set the duration in seconds
+    private float elapsedTime = 0f;
 
     public bool IsFaint = false;
 
@@ -168,18 +170,6 @@ public class Cat : MonoBehaviour
     {
         onAnyCatDying.Invoke();
     }
-    void faint()
-    {
-        IsFaint = true;
-        animator.SetBool("Faint", true);
-
-        CatCurrentHealth -= Time.deltaTime; //hp slowly draining when cat faint
-
-        //While reducing health it will slowly
-        //It will activate the listener in happiness script
-        Dying();
-        HPB.SetBar(CatCurrentHealth);
-    }
 
     // Update is called once per frame
     // This handles all the conditions 
@@ -200,7 +190,19 @@ public class Cat : MonoBehaviour
             //If not it will slowly reduce health
             else if (CatCurrentHealth > 0)
             {
-                faint();
+                IsFaint = true;
+                animator.SetBool("Faint", true);
+                if (elapsedTime < duration)
+                {
+                    CatCurrentHealth -= Time.deltaTime; //hp slowly draining when cat faint
+                    elapsedTime += Time.deltaTime;
+                }
+
+
+                //While reducing health it will slowly
+                //It will activate the listener in happiness script
+                Dying();
+                HPB.SetBar(CatCurrentHealth);
             }
             else
             {
