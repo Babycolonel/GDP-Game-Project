@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public enum BattleState{ START, PLAYERTURN, ENEMYTURN, WON, LOST }
 public class BattleSystem : MonoBehaviour
 {
-    public GameObject PlayerPrefeb;
-    public GameObject EnemyPrefeb;
+    
 
-    public Transform PlayerBattleStation;
-    public Transform EnemyBattleStation;
+    public Unit playerUnit;
+    public Unit enemyUnit;
+
+    public BattleHUD playerHUD;
+    public BattleHUD enemyHUD;
 
 
     public BattleState state;
@@ -24,10 +26,8 @@ public class BattleSystem : MonoBehaviour
 
     void SetupBattle()
     {
-        GameObject playerGameObject = Instantiate(PlayerPrefeb, PlayerBattleStation);
-
-
-        Instantiate(EnemyPrefeb, EnemyBattleStation);
+        playerHUD.SetHUD(playerUnit);
+        enemyHUD.SetHUD(enemyUnit);
     }
 
     // Update is called once per frame
