@@ -12,7 +12,6 @@ public class BarScript : MonoBehaviour
     public void SetMaxBar(int health)
     {
         barSlider.maxValue = health;
-        barSlider.value = health;
 
         fill.color = barGradient.Evaluate(1f);
     }
