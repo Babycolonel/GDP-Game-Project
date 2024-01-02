@@ -90,7 +90,8 @@ public class Cat : MonoBehaviour
         CatManager.onFeedingCat.AddListener(FeedCat);
 
         //For capturing
-        CatManager.onCaptureCat.AddListener(Int.CheckCapture);
+        //CatManager.onCaptureCat.AddListener(Int.CheckCapture);
+        CatManager.onCaptureCat.AddListener(Cap.CaptureCat);
     }
     public void InitializeCat(float initialHunger, float initialHealth, Sprite catSprite)
     {
