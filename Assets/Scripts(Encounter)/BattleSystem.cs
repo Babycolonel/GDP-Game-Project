@@ -95,9 +95,19 @@ public class BattleSystem : MonoBehaviour
 
     public void PTpersuade()
     {
-
+        enemyUnit.currentHP += playerUnit.damage;
+        enemyHUD.SetHP(enemyUnit.currentHP);
+        StartCoroutine(Persuade());
     }
-    
+
+    IEnumerator Persuade()
+    {
+        
+
+        yield return new WaitForSeconds(timePause);
+    }
+
+
     public void PTArgue()
     {
 
