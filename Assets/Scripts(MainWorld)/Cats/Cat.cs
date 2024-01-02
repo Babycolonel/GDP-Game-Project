@@ -40,7 +40,7 @@ public class Cat : MonoBehaviour
 
     //For Capturing system
     public Capture Cap;
-
+    public PlayerInteraction Int;
     //animator
     public Animator animator;
 
@@ -90,7 +90,7 @@ public class Cat : MonoBehaviour
         CatManager.onFeedingCat.AddListener(FeedCat);
 
         //For capturing
-        CatManager.onCaptureCat.AddListener(Cap.CaptureCat);
+        CatManager.onCaptureCat.AddListener(Int.CheckCapture);
     }
     public void InitializeCat(float initialHunger, float initialHealth, Sprite catSprite)
     {
@@ -252,7 +252,7 @@ public class Cat : MonoBehaviour
     }
     void FixedUpdate()
     {
-        isPlayer = Physics2D.OverlapCapsule(playerCheck.position, new Vector2(2.5f, 2.5f), CapsuleDirection2D.Vertical, 0, playerLayer);
+        isPlayer = Physics2D.OverlapCapsule(playerCheck.position, new Vector2(2f, 2f), CapsuleDirection2D.Vertical, 0, playerLayer);
     }
 
 

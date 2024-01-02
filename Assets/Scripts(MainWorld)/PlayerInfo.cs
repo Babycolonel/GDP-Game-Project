@@ -6,5 +6,5 @@ using UnityEngine;
 public class PlayerInfo : MonoBehaviour
 {
     public bool hasCat = false;
-    public GameObject capturedCat = null;
+    public GameObject capturedCat = null;   
 }

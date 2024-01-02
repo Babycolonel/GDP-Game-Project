@@ -28,10 +28,10 @@ public class Capture : MonoBehaviour
 
     // List to store captured cat data
     private List<CatData> capturedCats = new List<CatData>();
-
     void Start()
     {
         cat.isCaptured = false;
+        currentCat.isCaptured = false;
         // Assign the playerTransform using the player's tag
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)

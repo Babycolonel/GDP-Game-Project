@@ -8,7 +8,6 @@ public class CatManager : MonoBehaviour
 
     public static UnityEvent onFeedingCat = new UnityEvent();
     public static UnityEvent onCaptureCat = new UnityEvent();
-
     public void OnClickFeed()
     {
         Feed();

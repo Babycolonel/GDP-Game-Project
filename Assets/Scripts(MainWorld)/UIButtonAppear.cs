@@ -11,7 +11,7 @@ public class UIButtonAppear : MonoBehaviour
     [SerializeField] GameObject VetUI;
 
     public PlayerInfo player;
-    private bool isNearCat = false;
+    public bool isNearCat = false;
 
     private void Start()
     {
@@ -31,8 +31,17 @@ public class UIButtonAppear : MonoBehaviour
         if (collision.CompareTag("cat"))
         {
             CatInteractButtons.SetActive(true);
-            CatCaptureButtons.SetActive(true);
+            //CatCaptureButtons.SetActive(true);
+            
             isNearCat = true;
+        }
+        if (collision.CompareTag("cat") && cat.isCaptured == true)
+        {
+            CatCaptureButtons.SetActive(false);
+        }
+        else if (collision.CompareTag("cat"))
+        {
+            CatCaptureButtons.SetActive(true);
         }
 
         if (collision.CompareTag("foodstore"))
@@ -79,16 +88,12 @@ public class UIButtonAppear : MonoBehaviour
             VetUI.SetActive(false);
         }
     }
-
     void Update()
     {
-        if (player.hasCat || isNearCat)
+        if(cat.isCaptured == true && isNearCat == false)
         {
             CatCaptureButtons.SetActive(true);
         }
-        else
-        {
-            CatCaptureButtons.SetActive(false);
-        }
     }
+
 }
