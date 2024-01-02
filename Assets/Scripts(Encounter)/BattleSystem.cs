@@ -102,20 +102,56 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator Persuade()
     {
-        
+        ActionOverlay.SetActive(false);
+        PhoneOverlay.SetActive(false);
+        Dialog.SetActive(true);
+        DiaText.text = "You have persuaded " + enemyUnit.unitName + " by " + playerUnit.damage + "%";
 
         yield return new WaitForSeconds(timePause);
+
+        StartCoroutine(enemyTurn());
     }
 
 
     public void PTArgue()
     {
+        enemyUnit.currentHP += playerUnit.damage * 2;
+        enemyHUD.SetHP(enemyUnit.currentHP);
 
+        playerUnit.currentHP -= playerUnit.damage;
+        playerHUD.SetHP(playerUnit.currentHP);
+        StartCoroutine(Argue());
+    }
+
+    IEnumerator Argue()
+    {
+        ActionOverlay.SetActive(false);
+        PhoneOverlay.SetActive(false);
+        Dialog.SetActive(true);
+        DiaText.text = "You have argued with " + enemyUnit.unitName + " and persuaded by " + playerUnit.damage + "%";
+
+        yield return new WaitForSeconds(timePause);
+
+        DiaText.text = "Your morale went down by " + enemyUnit.damage + "%";
+
+        yield return new WaitForSeconds(timePause);
+
+        StartCoroutine(enemyTurn());
     }
 
     public void PTRun()
     {
-         
+        StartCoroutine(Run());
+    }
+
+    IEnumerator Run()
+    {
+        ActionOverlay.SetActive(false);
+        PhoneOverlay.SetActive(false);
+        Dialog.SetActive(true);
+
+        DiaText.text = "Run is successful";
+        yield return new WaitForSeconds(timePause);
     }
 
     IEnumerator enemyTurn()
