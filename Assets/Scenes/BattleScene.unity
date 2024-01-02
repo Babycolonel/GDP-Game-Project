@@ -772,7 +772,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 626760909}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 677489190}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: PTpersuade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &626760909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,7 +862,7 @@ MonoBehaviour:
   enemyUnit: {fileID: 1920434703}
   playerHUD: {fileID: 933439547}
   enemyHUD: {fileID: 1443385228}
-  PolTurn: 0
+  PolTurn: 3
   state: 0
 --- !u!4 &677489191
 Transform:
@@ -1507,7 +1519,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1047162534}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 677489190}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: PTArgue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1047162534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2240,7 +2264,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1380922202}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 677489190}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: PTRun
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1380922202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2930,7 +2966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056cc12f33e3ccd4d9b33e916a47d7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectOverlay: {fileID: 6535352}
 --- !u!1 &1783534313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3290,7 +3325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056cc12f33e3ccd4d9b33e916a47d7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectOverlay: {fileID: 6535352}
 --- !u!1 &1920434700
 GameObject:
   m_ObjectHideFlags: 0
