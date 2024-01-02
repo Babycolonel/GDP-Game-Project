@@ -613,7 +613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &124067272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,6 +676,7 @@ GameObject:
   - component: {fileID: 186118427}
   - component: {fileID: 186118428}
   - component: {fileID: 186118429}
+  - component: {fileID: 186118430}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -851,6 +852,7 @@ MonoBehaviour:
   FoodstoreUI: {fileID: 1410025388}
   VetUI: {fileID: 747247850}
   player: {fileID: 186118429}
+  isNearCat: 0
 --- !u!114 &186118428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,6 +883,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasCat: 0
   capturedCat: {fileID: 0}
+--- !u!114 &186118430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186118420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1ddbf17e395cb409e6c19a0fe68331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Capture: {fileID: 1458496406}
+  cat: {fileID: 1458496404}
+  interactableObjects:
+  - {fileID: 1458496400}
+  - {fileID: 1454547719}
 --- !u!1 &191115546
 GameObject:
   m_ObjectHideFlags: 0
@@ -3996,6 +4015,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1989752147958345580, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
   m_PrefabInstance: {fileID: 2955135101751670660}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1458496406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1870313862234239532, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+  m_PrefabInstance: {fileID: 2955135101751670660}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458496400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc8644a7c7135a4eb4d9626ecd57479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1460236206
 GameObject:
   m_ObjectHideFlags: 0
@@ -5388,6 +5418,7 @@ MonoBehaviour:
   FoodstoreUI: {fileID: 0}
   VetUI: {fileID: 0}
   player: {fileID: 186118429}
+  isNearCat: 0
 --- !u!1 &2026891746
 GameObject:
   m_ObjectHideFlags: 0
