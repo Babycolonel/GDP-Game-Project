@@ -634,7 +634,7 @@ MonoBehaviour:
   - {fileID: 793851924}
   - {fileID: 1502360124}
   - {fileID: 1825804457}
-  dayCounter: {fileID: 1393851146}
+  dayCounter: {fileID: 0}
   minSpawnTime: 1
   maxSpawnTime: 3
 --- !u!4 &124067273
@@ -2039,6 +2039,7 @@ GameObject:
   - component: {fileID: 768380079}
   - component: {fileID: 768380080}
   - component: {fileID: 768380081}
+  - component: {fileID: 768380082}
   m_Layer: 0
   m_Name: GameScript
   m_TagString: Untagged
@@ -2104,6 +2105,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001322ad0364d76419aa52b0e50cda31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &768380082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768380077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495a2be034102584eabcd8e393777070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DayNumber: 1
+  timeRemaining: 60
+  DayCount: {fileID: 1393851147}
+  timerIsRunning: 0
+  happinessCheck: {fileID: 768380080}
 --- !u!1001 &783860213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3624,7 +3642,6 @@ GameObject:
   - component: {fileID: 1393851145}
   - component: {fileID: 1393851148}
   - component: {fileID: 1393851147}
-  - component: {fileID: 1393851146}
   m_Layer: 5
   m_Name: DayCount
   m_TagString: Untagged
@@ -3652,23 +3669,6 @@ RectTransform:
   m_AnchoredPosition: {x: -1075.02, y: 631.94}
   m_SizeDelta: {x: 372.05, y: 176.13}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1393851146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393851144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 495a2be034102584eabcd8e393777070, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DayNumber: 1
-  timeRemaining: 1
-  DayCount: {fileID: 1393851147}
-  timerIsRunning: 0
-  happinessCheck: {fileID: 768380080}
 --- !u!114 &1393851147
 MonoBehaviour:
   m_ObjectHideFlags: 0
