@@ -11,6 +11,9 @@ public class DayProgression : MonoBehaviour
     public GameObject Day3;
     public GameObject Day4;
     public GameObject Day5;
+    public GameObject Vet;
+    public GameObject Food;
+    public GameObject CatHouse;
 
     void Start()
     {
@@ -19,6 +22,9 @@ public class DayProgression : MonoBehaviour
         Day3.SetActive(false);
         Day4.SetActive(false);
         Day5.SetActive(false);
+        Vet.SetActive(false);
+        Food.SetActive(false);
+        //CatHouse.SetActive(false);
     }
 
 
@@ -33,16 +39,19 @@ public class DayProgression : MonoBehaviour
         { 
             Day2.SetActive(true);
             Day1.SetActive(false);
+            Food.SetActive(true);
         }
         else if (DayCount.DayNumber == 3) 
         { 
             Day3.SetActive(true);
             Day2.SetActive(false);
+            Vet.SetActive(true);
         }
         else if (DayCount.DayNumber == 4) 
         { 
             Day4.SetActive(true);
             Day3.SetActive(false);
+            //CatHouse.SetActive(true);
         }
         else 
         { 
