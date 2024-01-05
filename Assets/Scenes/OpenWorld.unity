@@ -2594,6 +2594,9 @@ MonoBehaviour:
   Day3: {fileID: 1674302676}
   Day4: {fileID: 738578586}
   Day5: {fileID: 495695684}
+  Vet: {fileID: 1469550992}
+  Food: {fileID: 35129345}
+  CatHouse: {fileID: 0}
 --- !u!1001 &783860213
 PrefabInstance:
   m_ObjectHideFlags: 0
