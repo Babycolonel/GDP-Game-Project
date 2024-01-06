@@ -27,6 +27,7 @@ public class Cat : MonoBehaviour
     public bool Isdead = false;
     public bool IsDying = false;
     public bool Executed = false;
+    public bool isSpayed = true;
     public static UnityEvent onAnyCatDeath = new UnityEvent();
     public static UnityEvent onAnyCatDying = new UnityEvent();
 
