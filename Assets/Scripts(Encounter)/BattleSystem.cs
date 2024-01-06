@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Resources;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum BattleState{ START, PLAYERTURN, ENEMYTURN, WON, LOST }
@@ -26,6 +27,7 @@ public class BattleSystem : MonoBehaviour
     private bool TimeRecurring;
     public int PolTurn;
 
+    
 
     public BattleState state;
 
@@ -152,6 +154,7 @@ public class BattleSystem : MonoBehaviour
 
         DiaText.text = "Run is successful";
         yield return new WaitForSeconds(timePause);
+        SceneManager.LoadSceneAsync(0);
     }
 
     IEnumerator enemyTurn()
