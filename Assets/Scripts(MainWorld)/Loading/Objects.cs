@@ -4,7 +4,4 @@ using UnityEngine;
 
 public class Objects : MonoBehaviour
 {
-    public bool inScene = false;
-
-
 }

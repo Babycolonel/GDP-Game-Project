@@ -21,19 +21,26 @@ public class Capture : MonoBehaviour
 {
     public Cat cat;
     private Cat currentCat;
+    public GameObject player;
     public Transform playerTransform;
 
     //get the player's info to check if they are carrying a cat
-    public PlayerInfo player;
+    public PlayerInfo playerI;
 
     // List to store captured cat data
     private List<CatData> capturedCats = new List<CatData>();
 
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void Start()
     {
         cat.isCaptured = false;
-        // Assign the playerTransform using the player's tag
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //Assign the playerTransform using the player's tag
+
+
         if (player != null)
         {
             playerTransform = player.transform;
@@ -69,8 +76,8 @@ public class Capture : MonoBehaviour
             // Disable the original cat
             currentCat.gameObject.SetActive(false);
             //change has cat to true so that the game knows the player has a cat
-            player.hasCat = true;
-            player.capturedCat = gameObject;
+            playerI.hasCat = true;
+            playerI.capturedCat = gameObject;
             
         }
         else if (cat != null && currentCat.isCaptured && cat.isCaptured)
@@ -89,23 +96,25 @@ public class Capture : MonoBehaviour
 
     public void RespawnCat(float initialHunger, float initialHealth)
     {
-        if (cat != null && gameObject == player.capturedCat)
+        if (cat != null && gameObject == playerI.capturedCat)
         {
             cat.isCaptured = false;
             currentCat.isCaptured = false;
             // Deactivate the original cat
             cat.gameObject.SetActive(false);
 
+
+            
             // Move the original cat to the player's position
-            cat.transform.position = playerTransform.position;
+            cat.transform.position = player.transform.position;
 
     
             // Activate the original cat
             cat.gameObject.SetActive(true);
 
             //change has cat to false so that the game knows the player does not have a cat
-            player.hasCat = false;
-            player.capturedCat = null;
+            playerI.hasCat = false;
+            playerI.capturedCat = null;
         }
         else
         {

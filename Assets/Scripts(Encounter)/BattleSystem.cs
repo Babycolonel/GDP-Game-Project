@@ -146,8 +146,12 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(Run());
     }
 
+    //public bool isNextScene = true;
+
+   // [SerializeField] public SceneInfo sceneInfo;
     IEnumerator Run()
     {
+      //  sceneInfo.isNextScene = isNextScene;
         ActionOverlay.SetActive(false);
         PhoneOverlay.SetActive(false);
         Dialog.SetActive(true);

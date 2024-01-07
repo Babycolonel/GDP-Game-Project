@@ -865,6 +865,8 @@ MonoBehaviour:
   PolTurn: 3
   enemyAnimator: {fileID: 1920434704}
   state: 0
+  isNextScene: 1
+  sceneInfo: {fileID: 11400000, guid: 1e64b7e7cd9c725438368f5eb21c4124, type: 2}
 --- !u!4 &677489191
 Transform:
   m_ObjectHideFlags: 0
