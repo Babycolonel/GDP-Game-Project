@@ -24,11 +24,11 @@ public class HappinessSystem : MonoBehaviour
 
         percentage.text = currentHappiness + "%";
 
-        Cat.onAnyCatDeath.AddListener(DeductHappiness);
+        Cat.onAnyCatDeath.AddListener(Deduct1Happiness);
         Cat.onAnyCatDying.AddListener(ReducingHappiness);
         Cat.onAnyCatFeeding.AddListener(AddingHappiness);
-        CatManager.onPettingCat.AddListener(PetHappiness);
-        CatManager.onPettingTooMuch.AddListener(DeductHappiness);
+        Cat.onSuccessPet.AddListener(PetHappiness);
+        Cat.onFailPet.AddListener(DeductHappiness);
     }
     
     
@@ -57,9 +57,13 @@ public class HappinessSystem : MonoBehaviour
         percentage.text = currentHappinessDisplay + "%";
     }
 
-    public void DeductHappiness()
+    public void Deduct1Happiness()
     {
         MinusHappiness(10);
+    }
+    public void DeductHappiness()
+    {
+        MinusHappiness(3);
     }
     public void ReducingHappiness()
     {
