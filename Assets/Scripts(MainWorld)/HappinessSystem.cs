@@ -26,6 +26,7 @@ public class HappinessSystem : MonoBehaviour
 
         Cat.onAnyCatDeath.AddListener(DeductHappiness);
         Cat.onAnyCatDying.AddListener(ReducingHappiness);
+        Cat.onAnyCatFeeding.AddListener(AddingHappiness);
     }
     
     
@@ -61,6 +62,10 @@ public class HappinessSystem : MonoBehaviour
     public void ReducingHappiness()
     {
         MinusHappiness(Time.deltaTime);
+    }
+    public void AddingHappiness()
+    {
+        AddHappiness(Time.deltaTime/2);
     }
     void Update()
     {
