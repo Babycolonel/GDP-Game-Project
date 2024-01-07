@@ -1718,7 +1718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &393342010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3355,6 +3355,11 @@ MonoBehaviour:
   Vet: {fileID: 1469550992}
   Food: {fileID: 35129345}
   CatHouse: {fileID: 0}
+  executedD1: 0
+  executedD2: 0
+  executedD3: 0
+  executedD4: 0
+  executedD5: 0
 --- !u!1001 &783860213
 PrefabInstance:
   m_ObjectHideFlags: 0
