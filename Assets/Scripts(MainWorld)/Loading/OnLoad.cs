@@ -5,25 +5,50 @@ using UnityEngine;
 public class OnLoad : MonoBehaviour
 {
     public Objects objects;
-    private void Start()
-    {
-        ExecuteOnce(); 
+    public bool isNextScene = true;
+    [SerializeField] SceneInfo sceneInfo;
 
-    }
-    private bool hasFunctionExecuted = false;
+    
+    public static OnLoad instance { get; private set; }
 
-    // Call this method to execute the function only once
-    public void ExecuteOnce()
+    void Start()
     {
-        if (hasFunctionExecuted == false)
+        if (instance == null)
         {
+            instance = this;
             DontDestroyOnLoad(gameObject);
-            objects.gameObject.SetActive(true);
-            hasFunctionExecuted = true;
         }
-        else
+
+        else if (instance != this)
         {
-            Debug.Log("Function already executed!");
+            
+            this.gameObject.SetActive(false);
+            OnLoad.instance.objects.gameObject.SetActive(true);
         }
+
     }
+    private void OnEnable()
+    {
+        Bruh();
+    }
+
+
+
+    public void Bruh()
+    {
+        //sceneInfo.isNextScene = isNextScene;
+        if (sceneInfo.isNextScene == false)
+        {
+            Debug.Log("enabled");
+            objects.gameObject.SetActive(true);
+            //hasFunctionExecuted = true;
+        }
+        //else if (sceneInfo.isNextScene)
+        //{
+        //    Debug.Log("disabled");
+        //    this.objects.gameObject.SetActive(true);
+        //}
+    }
+
+
 }

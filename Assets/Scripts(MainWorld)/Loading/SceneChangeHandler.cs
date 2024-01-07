@@ -7,8 +7,9 @@ public class SceneChangeHandler : MonoBehaviour
 {
     public Objects objects;
     public bool toggleState = false;
-
-
+    public bool isNextScene = true;
+    [SerializeField] public SceneInfo sceneInfo;
+    private Objects currentObjects;
 
     private void OnEnable()
     {
@@ -31,16 +32,14 @@ public class SceneChangeHandler : MonoBehaviour
     private void ObjectLoader()
     {
         
-        if (toggleState)
+        //sceneInfo.isNextScene = isNextScene;
+        if (toggleState && sceneInfo.isNextScene == true)
         {
             objects.gameObject.SetActive(false);
+            //currentObjects.gameObject.SetActive(false);
             Debug.Log("changed scene");
         }
-        else
-        {
-            objects.gameObject.SetActive(true);
-            Debug.Log("returned to scene");
-        }
+
         toggleState = !toggleState;
     }
 }
