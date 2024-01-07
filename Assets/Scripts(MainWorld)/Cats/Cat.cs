@@ -15,7 +15,8 @@ public class Cat : MonoBehaviour
     public float feedingTime;
     public float feedingLeft;
     public int FeedMultiplier;
-    public int PetLeft = 5;
+    public int PetAmount = 5;
+    public int PetLeft;
 
     public float CatMaxHealth = 10;
     public float CatMinHealth = 0;
@@ -32,6 +33,8 @@ public class Cat : MonoBehaviour
     public static UnityEvent onAnyCatDeath = new UnityEvent();
     public static UnityEvent onAnyCatDying = new UnityEvent();
     public static UnityEvent onAnyCatFeeding = new UnityEvent();
+    public static UnityEvent onSuccessPet = new UnityEvent();
+    public static UnityEvent onFailPet = new UnityEvent();
 
     public BarSetting HPB, HGB;
     public CatManager CM;
@@ -94,6 +97,13 @@ public class Cat : MonoBehaviour
 
         //For capturing
         CatManager.onCaptureCat.AddListener(Cap.CaptureCat);
+
+        //For petting
+        CatManager.onPettingCat.AddListener(PetCat);
+
+        PetLeft = PetAmount;
+
+        DayProgression.onPetReset.AddListener(ResetPet);
     }
     public void InitializeCat(float initialHunger, float initialHealth, Sprite catSprite)
     {
@@ -144,6 +154,24 @@ public class Cat : MonoBehaviour
             hasFeed = true;
         }
 
+    }
+
+    public void PetCat()
+    {
+        if (PetLeft > 0)
+        {
+            onSuccessPet.Invoke();
+            PetLeft--;
+        }
+        else
+        {
+            onFailPet.Invoke();
+        }
+    }
+
+    public void ResetPet()
+    {
+        PetLeft = PetAmount;
     }
 
     //Increase hunger is just a UI thing
