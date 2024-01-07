@@ -15,6 +15,7 @@ public class Cat : MonoBehaviour
     public float feedingTime;
     public float feedingLeft;
     public int FeedMultiplier;
+    public int PetLeft = 5;
 
     public float CatMaxHealth = 10;
     public float CatMinHealth = 0;
