@@ -30,6 +30,7 @@ public class Cat : MonoBehaviour
     public bool isSpayed = true;
     public static UnityEvent onAnyCatDeath = new UnityEvent();
     public static UnityEvent onAnyCatDying = new UnityEvent();
+    public static UnityEvent onAnyCatFeeding = new UnityEvent();
 
     public BarSetting HPB, HGB;
     public CatManager CM;
@@ -171,6 +172,10 @@ public class Cat : MonoBehaviour
     {
         onAnyCatDying.Invoke();
     }
+    void Feeding()
+    {
+        onAnyCatFeeding.Invoke();
+    }
 
     // Update is called once per frame
     // This handles all the conditions 
@@ -230,6 +235,7 @@ public class Cat : MonoBehaviour
             {
                 //if yes then it will slowly increase
                 IncreaseHunger(Time.deltaTime * FeedMultiplier);
+                Feeding();
             }
             else
             {
