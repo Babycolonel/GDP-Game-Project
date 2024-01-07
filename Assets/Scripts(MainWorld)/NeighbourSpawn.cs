@@ -22,7 +22,7 @@ public class NeighbourSpawn : MonoBehaviour
     void Update()
     {
         currentTime += Time.deltaTime;
-        if (dayCounter.DayNumber >= 4 && neighbours != null && (currentTime >= timeTillNextSpawn || timeTillNextSpawn == 0))
+        if (dayCounter.DayNumber >= 4 && neighbours.Count != 0 && (currentTime >= timeTillNextSpawn || timeTillNextSpawn == 0))
         {
             neighbour = neighbours[Random.Range(0, neighbours.Count)];
             neighbour.SetActive(true);

@@ -10,7 +10,10 @@ public class DayCounter : MonoBehaviour
     //initial number of days:
     [SerializeField] public int DayNumber;
     //length of days, in seconds:
-    [SerializeField] public float timeRemaining;
+    //I changed it so that each day would be equally as long, day length is how long each day is and time remaining is how much more 
+    //time left in that day
+    [SerializeField] public float dayLength;
+    public float timeRemaining;
     public TMP_Text DayCount;
     public bool timerIsRunning = false;
     public HappinessCheck happinessCheck;
@@ -21,6 +24,7 @@ public class DayCounter : MonoBehaviour
         //timeRemaining = 5;
         DayCount.text = "Day: " + DayNumber;
         timerIsRunning = true;
+        timeRemaining = dayLength;
     }
 
     void Update()
@@ -40,6 +44,7 @@ public class DayCounter : MonoBehaviour
                     DayNumber += 1;
                     timeRemaining = 1;
                     DayCount.text = "Day: " + DayNumber;
+                    timeRemaining = dayLength;
                 }
                 else
                 {

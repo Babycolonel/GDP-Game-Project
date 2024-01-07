@@ -27,7 +27,7 @@ public class BattleSystem : MonoBehaviour
     private bool TimeRecurring;
     public int PolTurn;
 
-    
+    public Animator enemyAnimator;
 
     public BattleState state;
 
@@ -160,6 +160,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator enemyTurn()
     {
         DiaText.text = "The enemy decides to scold you";
+        enemyAnimator.SetTrigger("Scold");
 
         yield return new WaitForSeconds(timePause);
 
