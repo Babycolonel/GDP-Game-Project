@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerInfo : MonoBehaviour
 {
     //public OnLoad onload;
-    public bool hasCat = false;
+    //public bool hasCat = false;
     public GameObject capturedCat = null;
     public Cat cat;
     public bool isNextScene = true;

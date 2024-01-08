@@ -968,6 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cat: {fileID: 1458496404}
+  cap: {fileID: 0}
   CatInteractButtons: {fileID: 393342009}
   CatCaptureButtons: {fileID: 350024453}
   FoodstoreUI: {fileID: 1410025388}
@@ -1001,9 +1002,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77da53a8fdb735a47a9aa8b17ab6a5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasCat: 0
   capturedCat: {fileID: 894197025}
-  cat: {fileID: 0}
+  cat: {fileID: 1458496404}
   isNextScene: 1
   sceneInfo: {fileID: 11400000, guid: 1e64b7e7cd9c725438368f5eb21c4124, type: 2}
 --- !u!95 &186118430
@@ -3360,7 +3360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DayNumber: 1
-  dayLength: 60
+  dayLength: 3
   timeRemaining: 60
   DayCount: {fileID: 1393851147}
   timerIsRunning: 0
@@ -6364,7 +6364,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catInVet: {fileID: 0}
-  player: {fileID: 186118429}
   vetStatusText: {fileID: 843575418}
   timeNeededToHeal: 5
   timeNeededToSpay: 5
@@ -6374,6 +6373,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   vetWithCat: {fileID: 21300000, guid: dc26ce9d7327ef34b88f60beaf812e11, type: 3}
   vetWithoutCat: {fileID: 21300000, guid: 00d02044afd691e428070b94472928c8, type: 3}
+  cat: {fileID: 1458496404}
+  pin: {fileID: 186118429}
 --- !u!4 &1476994218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7216906392117751860, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
@@ -8153,6 +8154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cat: {fileID: 1458496404}
+  cap: {fileID: 0}
   CatInteractButtons: {fileID: 393342009}
   CatCaptureButtons: {fileID: 350024453}
   FoodstoreUI: {fileID: 0}

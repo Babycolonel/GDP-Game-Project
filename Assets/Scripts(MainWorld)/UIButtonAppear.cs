@@ -3,7 +3,7 @@ using UnityEngine;
 public class UIButtonAppear : MonoBehaviour
 {
     public Cat cat;
-    //public Capture cap;
+    public Capture cap;
 
     [SerializeField] GameObject CatInteractButtons;
     [SerializeField] GameObject CatCaptureButtons;

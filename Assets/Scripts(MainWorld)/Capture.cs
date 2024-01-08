@@ -76,8 +76,8 @@ public class Capture : MonoBehaviour
             // Disable the original cat
             currentCat.gameObject.SetActive(false);
             //change has cat to true so that the game knows the player has a cat
-            playerI.hasCat = true;
-            playerI.capturedCat = gameObject;
+            //playerI.hasCat = true;
+            //playerI.capturedCat = gameObject;
             
         }
         else if (cat != null && currentCat.isCaptured && cat.isCaptured)
@@ -96,7 +96,7 @@ public class Capture : MonoBehaviour
 
     public void RespawnCat(float initialHunger, float initialHealth)
     {
-        if (cat != null && gameObject == playerI.capturedCat)
+        if (cat != null && gameObject)
         {
             cat.isCaptured = false;
             currentCat.isCaptured = false;
@@ -104,7 +104,7 @@ public class Capture : MonoBehaviour
             cat.gameObject.SetActive(false);
 
 
-            
+            player = GameObject.FindGameObjectWithTag("Player");
             // Move the original cat to the player's position
             cat.transform.position = player.transform.position;
 
@@ -113,8 +113,8 @@ public class Capture : MonoBehaviour
             cat.gameObject.SetActive(true);
 
             //change has cat to false so that the game knows the player does not have a cat
-            playerI.hasCat = false;
-            playerI.capturedCat = null;
+            //playerI.hasCat = false;
+            //playerI.capturedCat = null;
         }
         else
         {
