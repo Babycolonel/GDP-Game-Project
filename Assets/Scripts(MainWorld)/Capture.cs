@@ -22,6 +22,8 @@ public class Capture : MonoBehaviour
     public Cat cat;
     private Cat currentCat;
     public GameObject player;
+    public GameObject vetObject;
+    public GameObject dayCounter;
     public Transform playerTransform;
 
     //get the player's info to check if they are carrying a cat
@@ -33,6 +35,7 @@ public class Capture : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        dayCounter = GameObject.Find("GameScript");
     }
 
     void Start()
@@ -57,6 +60,7 @@ public class Capture : MonoBehaviour
         Debug.Log("before check");
         if (currentCat != null && !currentCat.isCaptured && !cat.isCaptured && currentCat.isPlayer && !currentCat.Isdead)
         {
+
             currentCat.isCaptured = true;
             cat.isCaptured = true;
             Debug.Log("Captured: " + cat.name);
@@ -85,6 +89,16 @@ public class Capture : MonoBehaviour
         }
         else if (cat != null && currentCat.isCaptured && cat.isCaptured)
         {
+            if (dayCounter.GetComponent<DayCounter>().DayNumber >= 3)
+            {
+                Debug.Log("PAIN");
+                vetObject = GameObject.FindGameObjectWithTag("vet");
+                if (gameObject == vetObject.GetComponent<Vet>().catInVet)
+                {
+                    Debug.Log("ARGH");
+                    return;
+                }
+            }
             //playerI.capturedCat = gameObject;
             player = GameObject.FindGameObjectWithTag("Player");
             player.GetComponent<PlayerInfo>().capturedCat = gameObject;
@@ -128,4 +142,5 @@ public class Capture : MonoBehaviour
             Debug.LogError("Cat prefab not assigned in the inspector.");
         }
     }
+
 }

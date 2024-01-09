@@ -37,26 +37,26 @@ public class Vet : MonoBehaviour
     }
     public void OnClickHeal()
     {
-        player.GetComponent<PlayerInfo>().capturedCat = gameObject;
+        //player.GetComponent<PlayerInfo>().capturedCat = gameObject;
         HealOrPickUp();
     }
 
     public void OnClickSpay()
     {
-        player.GetComponent<PlayerInfo>().capturedCat = gameObject;
+        //player.GetComponent<PlayerInfo>().capturedCat = gameObject;
         SpayOrPickUp();
     }
 
     void HealOrPickUp()
     {
-        if (catInVet == null && cat.isCaptured)
+        if (catInVet == null && player.GetComponent<PlayerInfo>().capturedCat != null)
         {
-            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
+            //player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             onHealCat.Invoke();
         }
-        if (catInVet != null && isHealed && !cat.isCaptured)
+        if (catInVet != null && isHealed && player.GetComponent<PlayerInfo>().capturedCat == null)
         {
-            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
+            //player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             onPickUpCat.Invoke();
         }
     }
@@ -76,6 +76,7 @@ public class Vet : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         onHealCat.AddListener(HealCat);
         onSpayCat.AddListener(SpayCat);
         onPickUpCat.AddListener(PickUpCat);
@@ -90,13 +91,13 @@ public class Vet : MonoBehaviour
     {
         if (!isHealed)
         {
-            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
+            //player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             isHealing = true;
             timeTillHeal = timeNeededToHeal;
             catInVet = player.GetComponent<PlayerInfo>().capturedCat;
             player.GetComponent<PlayerInfo>().capturedCat = null;
             //pin.capturedCat = null;
-            cat.isCaptured = false;
+            //cat.isCaptured = false;
         }
     }
 
@@ -115,17 +116,17 @@ public class Vet : MonoBehaviour
 
     private void PickUpCat()
     {
-        if (isHealed && !cat.isCaptured)
+        if (isHealed && player.GetComponent<PlayerInfo>().capturedCat == null)
         {
 
-            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
+            //player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             catScript = catInVet.GetComponent<Cat>();
-            catScript.IsFaint = false;
-            catScript.CatCurrentHealth = catScript.CatMaxHealth;
-            catScript.CatCurrentHunger = catScript.CatMaxHunger;
+            catInVet.GetComponent<Cat>().IsFaint = false;
+            catInVet.GetComponent<Cat>().CatCurrentHealth = catScript.CatMaxHealth;
+            catInVet.GetComponent<Cat>().CatCurrentHunger = catScript.CatMaxHunger;
             player.GetComponent<PlayerInfo>().capturedCat = catInVet;
             catInVet = null;
-            cat.isCaptured = true;
+            //cat.isCaptured = true;
             isHealed = false;
         }
         if (isCatSpayed && !cat.isCaptured)
@@ -143,15 +144,16 @@ public class Vet : MonoBehaviour
 
     void Update()
     {
-        if (!cat.isCaptured && catInVet == null)
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player.GetComponent<PlayerInfo>().capturedCat == null && catInVet == null)
         {
             vetStatusText.text = "You are not carrying a cat";
         }
-        if (cat.isCaptured && catInVet == null)
+        if (player.GetComponent<PlayerInfo>().capturedCat != null && catInVet == null)
         {
             vetStatusText.text = "Click the left button to heal your cat, and right to spay it!";
         }
-        if (isHealed && cat.isCaptured)
+        if (isHealed && player.GetComponent<PlayerInfo>().capturedCat != null)
         {
             vetStatusText.text = "Cat healed, please drop off your cat before picking up another";
         }
@@ -159,7 +161,7 @@ public class Vet : MonoBehaviour
         {
             vetStatusText.text = "Cat healed!";
         }
-        if (isCatSpayed && cat.isCaptured)
+        if (isCatSpayed && player.GetComponent<PlayerInfo>().capturedCat != null)
         {
             vetStatusText.text = "Cat spayed, please drop off your cat before picking up another";
         }
@@ -178,7 +180,7 @@ public class Vet : MonoBehaviour
                 isHealing = false;
                 isHealed = true;
             }
-            spriteRenderer.sprite = vetWithCat;
+            //spriteRenderer.sprite = vetWithCat;
         }
         if (isSpaying)
         {

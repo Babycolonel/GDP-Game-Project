@@ -17,6 +17,7 @@ public class UIButtonAppear : MonoBehaviour
     {
         // Subscribe to the cat capture event
         CatManager.onCaptureCat.AddListener(OnCaptureCat);
+        
     }
 
     private void OnDisable()
@@ -66,16 +67,16 @@ public class UIButtonAppear : MonoBehaviour
         {
             CatInteractButtons.SetActive(false);
             
-            if (CatManager.onCaptureCat.GetPersistentEventCount() > 0)
-            {
-                // If there are subscribers, activate the CatCaptureButtons
-                CatCaptureButtons.SetActive(true);
-            }
-            else
-            {
-                // If there are no subscribers, do something else or nothing
-                CatCaptureButtons.SetActive(false);
-            }
+            // if (CatManager.onCaptureCat.GetPersistentEventCount() > 0)
+            // {
+            //     // If there are subscribers, activate the CatCaptureButtons
+            //     CatCaptureButtons.SetActive(true);
+            // }
+            // else
+            // {
+            //     // If there are no subscribers, do something else or nothing
+            //     CatCaptureButtons.SetActive(false);
+            // }
         }
 
         if (collision.CompareTag("foodstore"))
@@ -91,9 +92,18 @@ public class UIButtonAppear : MonoBehaviour
 
     void Update()
     {
-        if (cat.isCaptured == true && isNearCat == false)
+        if (player.capturedCat == true && isNearCat == false)
         {
             CatCaptureButtons.SetActive(true);
         }
+        else if (player.capturedCat != true && isNearCat == true)
+        {
+            CatCaptureButtons.SetActive(true);
+        }
+        else
+        {
+            CatCaptureButtons.SetActive(false);
+        }
+    
     }
 }
