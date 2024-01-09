@@ -29,13 +29,21 @@ public class Vet : MonoBehaviour
 
     public Cat cat;
     public PlayerInfo pin;
+    public GameObject player;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     public void OnClickHeal()
     {
+        player.GetComponent<PlayerInfo>().capturedCat = gameObject;
         HealOrPickUp();
     }
 
     public void OnClickSpay()
     {
+        player.GetComponent<PlayerInfo>().capturedCat = gameObject;
         SpayOrPickUp();
     }
 
@@ -43,10 +51,12 @@ public class Vet : MonoBehaviour
     {
         if (catInVet == null && cat.isCaptured)
         {
+            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             onHealCat.Invoke();
         }
         if (catInVet != null && isHealed && !cat.isCaptured)
         {
+            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             onPickUpCat.Invoke();
         }
     }
@@ -80,11 +90,12 @@ public class Vet : MonoBehaviour
     {
         if (!isHealed)
         {
-
+            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             isHealing = true;
             timeTillHeal = timeNeededToHeal;
-            catInVet = pin.capturedCat;
-            pin.capturedCat = null;
+            catInVet = player.GetComponent<PlayerInfo>().capturedCat;
+            player.GetComponent<PlayerInfo>().capturedCat = null;
+            //pin.capturedCat = null;
             cat.isCaptured = false;
         }
     }
@@ -93,10 +104,11 @@ public class Vet : MonoBehaviour
     {
         if (!isCatSpayed)
         {
+            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             isSpaying = true;
             timeTillSpay = timeNeededToSpay;
-            catInVet = pin.capturedCat;
-            pin.capturedCat = null;
+            catInVet = player.GetComponent<PlayerInfo>().capturedCat;
+            player.GetComponent<PlayerInfo>().capturedCat = null;
             cat.isCaptured = false;
         }
     }
@@ -105,21 +117,24 @@ public class Vet : MonoBehaviour
     {
         if (isHealed && !cat.isCaptured)
         {
+
+            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             catScript = catInVet.GetComponent<Cat>();
             catScript.IsFaint = false;
             catScript.CatCurrentHealth = catScript.CatMaxHealth;
             catScript.CatCurrentHunger = catScript.CatMaxHunger;
-            pin.capturedCat = catInVet;
+            player.GetComponent<PlayerInfo>().capturedCat = catInVet;
             catInVet = null;
             cat.isCaptured = true;
             isHealed = false;
         }
         if (isCatSpayed && !cat.isCaptured)
         {
+            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             catScript = catInVet.GetComponent<Cat>();
             catScript.IsFaint = false;
             catScript.isSpayed = true;
-            pin.capturedCat = catInVet;
+            player.GetComponent<PlayerInfo>().capturedCat = catInVet;
             catInVet = null;
             cat.isCaptured = true;
             isCatSpayed = false;
