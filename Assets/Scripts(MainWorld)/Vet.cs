@@ -29,7 +29,6 @@ public class Vet : MonoBehaviour
 
     public Cat cat;
     public PlayerInfo pin;
-
     public void OnClickHeal()
     {
         HealOrPickUp();
@@ -81,6 +80,7 @@ public class Vet : MonoBehaviour
     {
         if (!isHealed)
         {
+
             isHealing = true;
             timeTillHeal = timeNeededToHeal;
             catInVet = pin.capturedCat;

@@ -77,11 +77,17 @@ public class Capture : MonoBehaviour
             currentCat.gameObject.SetActive(false);
             //change has cat to true so that the game knows the player has a cat
             //playerI.hasCat = true;
+
             //playerI.capturedCat = gameObject;
+            player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             
         }
         else if (cat != null && currentCat.isCaptured && cat.isCaptured)
         {
+            //playerI.capturedCat = gameObject;
+            player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             Debug.Log("working");
 
             RespawnCat(currentCat.CatCurrentHunger, currentCat.CatCurrentHealth);
@@ -115,6 +121,7 @@ public class Capture : MonoBehaviour
             //change has cat to false so that the game knows the player does not have a cat
             //playerI.hasCat = false;
             //playerI.capturedCat = null;
+            player.GetComponent<PlayerInfo>().capturedCat = null;
         }
         else
         {
