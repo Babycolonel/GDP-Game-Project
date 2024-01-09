@@ -30,6 +30,8 @@ public class Vet : MonoBehaviour
     public Cat cat;
     public PlayerInfo pin;
 
+    public Animator animator;
+
     public void OnClickHeal()
     {
         HealOrPickUp();
@@ -179,11 +181,13 @@ public class Vet : MonoBehaviour
         }
         if (catInVet != null)
         {
-            spriteRenderer.sprite = vetWithCat;
+            //spriteRenderer.sprite = vetWithCat;
+            animator.SetBool("catInVet", true);
         }
         else
         {
-            spriteRenderer.sprite = vetWithoutCat;
+            //spriteRenderer.sprite = vetWithoutCat;
+            animator.SetBool("catInVet", false);
         }
     }
 }

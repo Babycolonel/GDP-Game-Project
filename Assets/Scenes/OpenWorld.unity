@@ -6230,6 +6230,7 @@ GameObject:
   - component: {fileID: 1469550995}
   - component: {fileID: 1469550994}
   - component: {fileID: 1469550997}
+  - component: {fileID: 1469550998}
   m_Layer: 6
   m_Name: Vet
   m_TagString: vet
@@ -6375,6 +6376,28 @@ MonoBehaviour:
   vetWithoutCat: {fileID: 21300000, guid: 00d02044afd691e428070b94472928c8, type: 3}
   cat: {fileID: 1458496404}
   pin: {fileID: 186118429}
+  animator: {fileID: 1469550998}
+--- !u!95 &1469550998
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469550992}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 12fc3d808367a3b458689ccadc9d80d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1476994218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7216906392117751860, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
@@ -6966,14 +6989,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5e29ea35c03c4b6469f6e3adc154fa0a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4a9a17b04532234b910f6fa896f103c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
