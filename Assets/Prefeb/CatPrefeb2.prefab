@@ -141,7 +141,7 @@ RectTransform:
   m_Children:
   - {fileID: 7216906390450215307}
   m_Father: {fileID: 7216906391281691651}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -281,6 +281,7 @@ RectTransform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8768376312460496382}
   - {fileID: 7216906391546065295}
   - {fileID: 7216906390695093856}
   m_Father: {fileID: 7216906392117751860}
@@ -386,7 +387,7 @@ RectTransform:
   m_Children:
   - {fileID: 7216906392242644872}
   m_Father: {fileID: 7216906391281691651}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -698,12 +699,17 @@ MonoBehaviour:
   feedingTime: 10
   feedingLeft: 0
   FeedMultiplier: 1
+  PetAmount: 5
+  PetLeft: 0
   CatMaxHealth: 10
   CatMinHealth: 0
   CatCurrentHealth: 0
+  duration: 2
+  IsFaint: 0
   Isdead: 0
   IsDying: 0
   Executed: 0
+  isSpayed: 1
   HPB: {fileID: 7216906391546065291}
   HGB: {fileID: 7216906390695093858}
   CM: {fileID: 0}
@@ -715,6 +721,7 @@ MonoBehaviour:
   Cap: {fileID: 1454547722}
   animator: {fileID: 274892529}
   food: {fileID: 0}
+  foodstore: {fileID: 0}
 --- !u!114 &1454547722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,7 +735,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cat: {fileID: 7216906392117751859}
+  player: {fileID: 0}
   playerTransform: {fileID: 0}
+  playerI: {fileID: 0}
 --- !u!1 &7216906392242644873
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +798,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8714890460440448467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8768376312460496382}
+  - component: {fileID: 6140842203764549843}
+  - component: {fileID: 7244183877855241225}
+  m_Layer: 7
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8768376312460496382
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8714890460440448467}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10.103864}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7216906391281691651}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.01, y: 1.03}
+  m_SizeDelta: {x: 2.1939, y: 0.9034}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6140842203764549843
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8714890460440448467}
+  m_CullTransparentMesh: 1
+--- !u!114 &7244183877855241225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8714890460440448467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
