@@ -271,7 +271,7 @@ public class Cat : MonoBehaviour
                 //or else it will just stop and reset the timer
                 hasFeed = false;
                 feedingLeft = 0;
-
+                elapsedTime = 0f;
                 animator.SetBool("Feeding", false);
             }
 
