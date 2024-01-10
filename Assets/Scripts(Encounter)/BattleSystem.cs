@@ -31,11 +31,20 @@ public class BattleSystem : MonoBehaviour
 
     public BattleState state;
 
+    public GameObject player;
+    public Transform playerTransform;
+    public PlayerInfo playerInfo;
+    public Transform enemyTransform;
+
     // Start is called before the first frame update
     void Start()
     {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
+        player = GameObject.FindWithTag("Player");
+        playerTransform = player.GetComponent<Transform>();
+        playerInfo = player.GetComponent<PlayerInfo>();
+        enemyTransform = playerInfo.enemyTransform;
     }
     void Update()
     {
@@ -80,7 +89,6 @@ public class BattleSystem : MonoBehaviour
             ActionOverlay.SetActive(false);
             PhoneOverlay.SetActive(false);
 
-
             state = BattleState.ENEMYTURN;
             StartCoroutine(enemyTurn());
         }
@@ -111,9 +119,16 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(timePause);
 
+        // if (enemyUnit.currentHP <= 0)
+        // {
+        //     DiaText.text = "You have persuaded " + enemyUnit.unitName + "!";
+        //     yield return new WaitForSeconds(timePause);
+        //     SceneManager.LoadSceneAsync(0);
+        //     Destroy(enemyTransform.gameObject);
+        // }
+
         StartCoroutine(enemyTurn());
     }
-
 
     public void PTArgue()
     {
@@ -134,9 +149,25 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(timePause);
 
+        // if (enemyUnit.currentHP <= 0)
+        // {
+        //     DiaText.text = "You have persuaded " + enemyUnit.unitName + "!";
+        //     yield return new WaitForSeconds(timePause);
+        //     SceneManager.LoadSceneAsync(0);
+        //     Destroy(enemyTransform.gameObject);
+        // }
+
         DiaText.text = "Your morale went down by " + enemyUnit.damage + "%";
 
         yield return new WaitForSeconds(timePause);
+
+        // if (playerUnit.currentHP <= 0)
+        // {
+        //     DiaText.text = "You have ran out of morale...";
+        //     yield return new WaitForSeconds(timePause);
+        //     SceneManager.LoadSceneAsync(0);
+        //     playerTransform.position = new Vector2(0, 0);
+        // }
 
         StartCoroutine(enemyTurn());
     }
@@ -159,6 +190,7 @@ public class BattleSystem : MonoBehaviour
         DiaText.text = "Run is successful";
         yield return new WaitForSeconds(timePause);
         SceneManager.LoadSceneAsync(0);
+        playerTransform.position += (playerTransform.position - enemyTransform.position) * 0.5f;
     }
 
     IEnumerator enemyTurn()
@@ -174,6 +206,14 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(timePause);
 
+        // if (playerUnit.currentHP <= 0)
+        // {
+        //     DiaText.text = "You have ran out of morale...";
+        //     yield return new WaitForSeconds(timePause);
+        //     SceneManager.LoadSceneAsync(0);
+        //     playerTransform.position = new Vector2(0, 0);
+        // }
+
         DiaText.text = "It is your turn";
 
         yield return new WaitForSeconds(timePause);
@@ -184,5 +224,5 @@ public class BattleSystem : MonoBehaviour
     }
 
 
-
 }
+

@@ -8,6 +8,7 @@ TagManager:
   - foodstore
   - vet
   - neighbour
+  - joystick
   layers:
   - Default
   - TransparentFX
