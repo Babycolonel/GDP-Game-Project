@@ -229,11 +229,11 @@ public class Cat : MonoBehaviour
             {
                 IsFaint = true;
                 animator.SetBool("Faint", true);
-                //if (elapsedTime < duration)
-                //{
+                if (elapsedTime < duration)
+                {
                     CatCurrentHealth -= Time.deltaTime; //hp slowly draining when cat faint
                     elapsedTime += Time.deltaTime;
-                //}
+                }
 
 
                 //While reducing health it will slowly
