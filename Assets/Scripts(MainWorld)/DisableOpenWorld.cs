@@ -34,7 +34,7 @@ public class DisableOpenWorld : MonoBehaviour
             joystick.enabled = false;
             //joystick.moveH = 0;
             //joystick.moveV = 0;
-            //joystickHandle.anchoredPosition = new Vector2 (0, 0);
+            joystickHandle.anchoredPosition = new Vector2 (0, 0);
             //joystickHandle.transform.po
             //playerRb.velocity = new Vector2 (0, 0);
             openWorldObjects.SetActive(false);

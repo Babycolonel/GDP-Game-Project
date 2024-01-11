@@ -12,6 +12,9 @@ public class UIButtonAppear : MonoBehaviour
 
     public PlayerInfo player;
     private bool isNearCat = false;
+    private bool isNearDeadCat = false;
+
+    public Cat catScript;
 
     private void Start()
     {
@@ -27,11 +30,21 @@ public class UIButtonAppear : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("cat"))
         {
+            //Debug.Log(collision.parent.gameObject.GetComponent<Cat>());
+            catScript = collision.transform.parent.gameObject.GetComponent<Cat>();
             CatInteractButtons.SetActive(true);
+            if (catScript.Isdead == true)
+            {
+                isNearDeadCat = true;
+            }
+            else
+            {
+                isNearDeadCat = false;
+            }
             //CatCaptureButtons.SetActive(true);
 
             isNearCat = true;
@@ -67,6 +80,7 @@ public class UIButtonAppear : MonoBehaviour
         {
             CatInteractButtons.SetActive(false);
             
+            
             // if (CatManager.onCaptureCat.GetPersistentEventCount() > 0)
             // {
             //     // If there are subscribers, activate the CatCaptureButtons
@@ -98,7 +112,16 @@ public class UIButtonAppear : MonoBehaviour
         }
         else if (player.capturedCat != true && isNearCat == true)
         {
-            CatCaptureButtons.SetActive(true);
+            if (isNearDeadCat == true)
+            {
+                CatCaptureButtons.SetActive(false);
+                CatInteractButtons.SetActive(false);
+            }
+            else
+            {
+                CatCaptureButtons.SetActive(true);
+            }
+            
         }
         else
         {

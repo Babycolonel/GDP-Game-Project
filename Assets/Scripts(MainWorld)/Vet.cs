@@ -201,6 +201,10 @@ public class Vet : MonoBehaviour
         else
         {
             spriteRenderer.sprite = vetWithoutCat;
+            isHealing = false;
+            isHealed = false;
+            isSpaying = false;
+            isCatSpayed = false;
         }
     }
 }

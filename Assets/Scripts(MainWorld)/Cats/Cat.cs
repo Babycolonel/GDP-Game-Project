@@ -55,6 +55,8 @@ public class Cat : MonoBehaviour
     //food store script to update the food store ui text showing food amount
     public FoodStore foodstore;
 
+    public GameObject catUI;
+
     void Awake()
     {
         //tagging the child game object (straycat1_orange)
@@ -227,11 +229,11 @@ public class Cat : MonoBehaviour
             {
                 IsFaint = true;
                 animator.SetBool("Faint", true);
-                if (elapsedTime < duration)
-                {
+                //if (elapsedTime < duration)
+                //{
                     CatCurrentHealth -= Time.deltaTime; //hp slowly draining when cat faint
                     elapsedTime += Time.deltaTime;
-                }
+                //}
 
 
                 //While reducing health it will slowly
@@ -243,6 +245,7 @@ public class Cat : MonoBehaviour
             {
                 //This is when the health is at 0
                 //running the death condition
+                Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 CatCurrentHealth = 0;
                 HPB.SetBar(CatCurrentHealth);
                 Isdead = true;
@@ -279,8 +282,10 @@ public class Cat : MonoBehaviour
         //This is the death script
         else if (Executed == false)
         {
+            Debug.Log("OUTIS SAVE ME");
             //it runs the listener
             Die();
+            catUI.SetActive(false);
             //And prevents it to be executed again
             Executed = true;
         }
