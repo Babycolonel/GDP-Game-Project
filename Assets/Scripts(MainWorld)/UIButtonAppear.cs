@@ -12,11 +12,15 @@ public class UIButtonAppear : MonoBehaviour
 
     public PlayerInfo player;
     private bool isNearCat = false;
+    private bool isNearDeadCat = false;
+
+    public Cat catScript;
 
     private void Start()
     {
         // Subscribe to the cat capture event
         CatManager.onCaptureCat.AddListener(OnCaptureCat);
+        
     }
 
     private void OnDisable()
@@ -26,11 +30,21 @@ public class UIButtonAppear : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("cat"))
         {
+            //Debug.Log(collision.parent.gameObject.GetComponent<Cat>());
+            catScript = collision.transform.parent.gameObject.GetComponent<Cat>();
             CatInteractButtons.SetActive(true);
+            if (catScript.Isdead == true)
+            {
+                isNearDeadCat = true;
+            }
+            else
+            {
+                isNearDeadCat = false;
+            }
             //CatCaptureButtons.SetActive(true);
 
             isNearCat = true;
@@ -66,16 +80,17 @@ public class UIButtonAppear : MonoBehaviour
         {
             CatInteractButtons.SetActive(false);
             
-            if (CatManager.onCaptureCat.GetPersistentEventCount() > 0)
-            {
-                // If there are subscribers, activate the CatCaptureButtons
-                CatCaptureButtons.SetActive(true);
-            }
-            else
-            {
-                // If there are no subscribers, do something else or nothing
-                CatCaptureButtons.SetActive(false);
-            }
+            
+            // if (CatManager.onCaptureCat.GetPersistentEventCount() > 0)
+            // {
+            //     // If there are subscribers, activate the CatCaptureButtons
+            //     CatCaptureButtons.SetActive(true);
+            // }
+            // else
+            // {
+            //     // If there are no subscribers, do something else or nothing
+            //     CatCaptureButtons.SetActive(false);
+            // }
         }
 
         if (collision.CompareTag("foodstore"))
@@ -91,9 +106,27 @@ public class UIButtonAppear : MonoBehaviour
 
     void Update()
     {
-        if (cat.isCaptured == true && isNearCat == false)
+        if (player.capturedCat == true && isNearCat == false)
         {
             CatCaptureButtons.SetActive(true);
         }
+        else if (player.capturedCat != true && isNearCat == true)
+        {
+            if (isNearDeadCat == true)
+            {
+                CatCaptureButtons.SetActive(false);
+                CatInteractButtons.SetActive(false);
+            }
+            else
+            {
+                CatCaptureButtons.SetActive(true);
+            }
+            
+        }
+        else
+        {
+            CatCaptureButtons.SetActive(false);
+        }
+    
     }
 }

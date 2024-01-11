@@ -9,6 +9,7 @@ public class JoystickMovement : MonoBehaviour
     public Joystick joystick;
     public Animator animator;
     public SpriteRenderer spriteRenderer;
+    public float moveH, moveV;
 
     void Start()
     {
@@ -21,10 +22,20 @@ public class JoystickMovement : MonoBehaviour
         
     }
 
+    void OnEnable()
+    {
+        moveH = 0;
+        moveV = 0;
+        joystick.input = Vector2.zero;
+        //joystick.SnapY = true;
+        //joystick.DeadZone = 5;
+
+    }
+
     void FixedUpdate()
     {
-        float moveH = joystick.Horizontal;
-        float moveV = joystick.Vertical;
+        moveH = joystick.Horizontal;
+        moveV = joystick.Vertical;
         Vector2 moveDir = new Vector2 (moveH, moveV);
         rb.velocity = moveDir * speed;
 
