@@ -16,6 +16,8 @@ public class UIButtonAppear : MonoBehaviour
 
     public Cat catScript;
 
+    public GameObject captureImage, releaseImage;
+
     private void Start()
     {
         // Subscribe to the cat capture event
@@ -79,6 +81,8 @@ public class UIButtonAppear : MonoBehaviour
         if (collision.CompareTag("cat"))
         {
             CatInteractButtons.SetActive(false);
+            releaseImage.SetActive(false);
+            captureImage.SetActive(true);
             
             
             // if (CatManager.onCaptureCat.GetPersistentEventCount() > 0)
@@ -109,6 +113,8 @@ public class UIButtonAppear : MonoBehaviour
         if (player.capturedCat == true && isNearCat == false)
         {
             CatCaptureButtons.SetActive(true);
+            releaseImage.SetActive(true);
+            captureImage.SetActive(false);
         }
         else if (player.capturedCat != true && isNearCat == true)
         {
@@ -120,6 +126,8 @@ public class UIButtonAppear : MonoBehaviour
             else
             {
                 CatCaptureButtons.SetActive(true);
+                releaseImage.SetActive(false);
+                captureImage.SetActive(true);
             }
             
         }
