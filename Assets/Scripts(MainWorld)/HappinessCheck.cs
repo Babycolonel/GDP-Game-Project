@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HappinessCheck : MonoBehaviour 
 {
@@ -20,7 +21,7 @@ public class HappinessCheck : MonoBehaviour
             playerJoystick.enabled = false;
             loseScreen.SetActive(true);;
         }
-        else if (currentHappiness == 100 && dc.DayNumber == 5)
+        else if (currentHappiness < 100 && currentHappiness >80 && dc.DayNumber == 5)
         {
             Time.timeScale = 0f;
             Debug.Log("Win");
@@ -32,5 +33,11 @@ public class HappinessCheck : MonoBehaviour
             Debug.Log("not lose or win");
         }
         
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadSceneAsync(0);
     }
 }
