@@ -13,6 +13,7 @@ public class BattleSystem : MonoBehaviour
     public GameObject ActionOverlay;
     public GameObject Dialog;
     public GameObject PhoneOverlay;
+    public GameObject CallButton;
     public Text DiaText;
     public Text textTime;
 
@@ -23,6 +24,7 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD enemyHUD;
 
     private bool Rec = false;
+    [SerializeField]
     private int RecTurn;
     private bool TimeRecurring;
     public int PolTurn;
@@ -48,7 +50,18 @@ public class BattleSystem : MonoBehaviour
     }
     void Update()
     {
-        
+        if (enemyUnit.currentHP == 100 && playerUnit.currentHP == 0)
+        {
+            //no lose or no win
+        }
+        else if (enemyUnit.currentHP == 100)
+        {
+            state = BattleState.WON;
+        }
+        else if (playerUnit.currentHP == 0) 
+        {
+            state = BattleState.LOST;
+        }
     }
 
     IEnumerator SetupBattle()
@@ -89,18 +102,42 @@ public class BattleSystem : MonoBehaviour
             ActionOverlay.SetActive(false);
             PhoneOverlay.SetActive(false);
 
-            state = BattleState.ENEMYTURN;
-            StartCoroutine(enemyTurn());
+            if (state == BattleState.WON) 
+            {
+                StartCoroutine(Win());
+            }
+            else if (state == BattleState.LOST)
+            {
+                StartCoroutine(Lose());
+            }
+            else
+            {
+                state = BattleState.ENEMYTURN;
+                StartCoroutine(enemyTurn());
+            }
+
+            
         }
     }
 
     public void PTCall()
     {
-        if (Rec == true && RecTurn > PolTurn)
+        if (Rec == true && RecTurn >= PolTurn)
         {
-            state = BattleState.WON;
-            // do stuff
+            enemyUnit.currentHP = 100;
+            StartCoroutine(Calling());
         }
+    }
+
+    IEnumerator Calling()
+    {
+        ActionOverlay.SetActive(false);
+        PhoneOverlay.SetActive(false);
+        Dialog.SetActive(true);
+        DiaText.text = "You have called the police";
+        yield return new WaitForSeconds(timePause);
+        StartCoroutine(Win());
+
     }
 
     public void PTpersuade()
@@ -127,7 +164,20 @@ public class BattleSystem : MonoBehaviour
         //     Destroy(enemyTransform.gameObject);
         // }
 
-        StartCoroutine(enemyTurn());
+
+        if (state == BattleState.WON)
+        {
+            StartCoroutine(Win());
+        }
+        else if (state == BattleState.LOST)
+        {
+            StartCoroutine(Lose());
+        }
+        else
+        {
+            state = BattleState.ENEMYTURN;
+            StartCoroutine(enemyTurn());
+        }
     }
 
     public void PTArgue()
@@ -145,7 +195,7 @@ public class BattleSystem : MonoBehaviour
         ActionOverlay.SetActive(false);
         PhoneOverlay.SetActive(false);
         Dialog.SetActive(true);
-        DiaText.text = "You have argued with " + enemyUnit.unitName + " and persuaded by " + playerUnit.damage + "%";
+        DiaText.text = "You have argued with " + enemyUnit.unitName + " and persuaded by " + playerUnit.damage * 2 + "%";
 
         yield return new WaitForSeconds(timePause);
 
@@ -169,7 +219,19 @@ public class BattleSystem : MonoBehaviour
         //     playerTransform.position = new Vector2(0, 0);
         // }
 
-        StartCoroutine(enemyTurn());
+        if (state == BattleState.WON)
+        {
+            StartCoroutine(Win());
+        }
+        else if (state == BattleState.LOST)
+        {
+            StartCoroutine(Lose());
+        }
+        else
+        {
+            state = BattleState.ENEMYTURN;
+            StartCoroutine(enemyTurn());
+        }
     }
 
     public void PTRun()
@@ -218,11 +280,44 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(timePause);
 
-        state = BattleState.PLAYERTURN;
-        RecTurn += 1;
-        PlayerTurn();
+        
+        if (state == BattleState.WON)
+        {
+            StartCoroutine(Win());
+        }
+        else if (state == BattleState.LOST)
+        {
+            StartCoroutine(Lose());
+        }
+        else
+        {
+            state = BattleState.PLAYERTURN;
+            RecTurn += 1;
+            PlayerTurn();
+
+        }
     }
 
+    IEnumerator Win()
+    {
+        yield return new WaitForSeconds(timePause);
+        ActionOverlay.SetActive(false);
+        PhoneOverlay.SetActive(false);
+        Dialog.SetActive(true);
+        DiaText.text = "You won";
+        yield return new WaitForSeconds(timePause);
+        //add ur code here
+    }
 
+    IEnumerator Lose()
+    {
+        yield return new WaitForSeconds(timePause);
+        ActionOverlay.SetActive(false);
+        PhoneOverlay.SetActive(false);
+        Dialog.SetActive(true);
+        DiaText.text = "You loss";
+        yield return new WaitForSeconds(timePause);
+        //add ur code here
+    }
 }
 
