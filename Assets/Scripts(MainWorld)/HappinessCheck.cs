@@ -7,6 +7,7 @@ public class HappinessCheck : MonoBehaviour
     public HappinessSystem happinessSystem;
     public GameObject loseScreen, winScreen;
     public JoystickMovement playerJoystick;
+    public DayCounter dc;
     public void HappyCheck()
     {
 
@@ -14,21 +15,22 @@ public class HappinessCheck : MonoBehaviour
         Debug.Log(currentHappiness);
         if (currentHappiness == 0)
         {
+            Time.timeScale = 0f;
             Debug.Log("Lose");
             playerJoystick.enabled = false;
             loseScreen.SetActive(true);;
-            //Lose();
         }
-        else if (currentHappiness == 100)
+        else if (currentHappiness == 100 && dc.DayNumber == 5)
         {
+            Time.timeScale = 0f;
             Debug.Log("Win");
             playerJoystick.enabled = false;
             winScreen.SetActive(true);;
-            //Win();
         }
         else
         {
             Debug.Log("not lose or win");
         }
+        
     }
 }

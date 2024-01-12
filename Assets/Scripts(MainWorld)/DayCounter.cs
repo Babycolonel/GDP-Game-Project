@@ -45,6 +45,7 @@ public class DayCounter : MonoBehaviour
                     timeRemaining = 1;
                     DayCount.text = "Day: " + DayNumber;
                     timeRemaining = dayLength;
+                    happinessCheck.HappyCheck();
                 }
                 else
                 {
@@ -55,12 +56,9 @@ public class DayCounter : MonoBehaviour
                 }
 
             }
-            //while (DayNumber < 5)
-            // {
-            //happinessCheck.HappyCheck();
-            //}
+            happinessCheck.HappyCheck();
         }
-
+        
 
     }
 }

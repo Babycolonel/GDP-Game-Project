@@ -6008,6 +6008,7 @@ MonoBehaviour:
   loseScreen: {fileID: 1859278159}
   winScreen: {fileID: 1582044159}
   playerJoystick: {fileID: 186118423}
+  dc: {fileID: 0}
 --- !u!114 &768380081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6033,7 +6034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DayNumber: 1
-  dayLength: 200
+  dayLength: 10
   timeRemaining: 60
   DayCount: {fileID: 1393851147}
   timerIsRunning: 0
