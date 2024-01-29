@@ -9,6 +9,7 @@ TagManager:
   - vet
   - neighbour
   - joystick
+  - item
   layers:
   - Default
   - TransparentFX
