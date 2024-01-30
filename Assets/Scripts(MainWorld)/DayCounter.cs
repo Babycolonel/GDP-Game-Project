@@ -52,7 +52,8 @@ public class DayCounter : MonoBehaviour
                     DayCount.text = "Day: " + DayNumber;
                     timeRemaining = dayLength;
                     happinessCheck.HappyCheck();
-                    
+                    DayPopUp();
+
                 }
                 else
                 {
@@ -71,7 +72,7 @@ public class DayCounter : MonoBehaviour
     }
     public void DayPopUp()
     {
-
+        dayCount.SetActive(false);
         Time.timeScale = 0;
         DayPopScreen.SetActive(true);
         DayPop.text = "Day: " + DayNumber;

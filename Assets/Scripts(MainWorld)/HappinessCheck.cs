@@ -31,10 +31,8 @@ public class HappinessCheck : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0;
             Debug.Log("not lose or win");
-            dayCount.SetActive(false);
-            dc.DayPopUp();
+            
         }
         
     }
