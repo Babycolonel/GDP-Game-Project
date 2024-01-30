@@ -65,6 +65,7 @@ public class DayCounter : MonoBehaviour
             }
             happinessCheck.HappyCheck();
         }
+        //if (DayNumber)
         
 
     }
