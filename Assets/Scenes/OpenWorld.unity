@@ -167,6 +167,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 660552171}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -466,6 +470,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 758222213}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
@@ -815,6 +823,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 171852152}
     - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -874,6 +886,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatPrefeb1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1989752147958345581, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1989752148725364637, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -923,6 +939,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 1682205160}
+    - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: foodstore
       value: 
@@ -1868,6 +1888,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 225743614}
     - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -1986,6 +2010,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 26056045}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -2098,6 +2126,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 141671008}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
@@ -3068,6 +3100,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 223912598}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
@@ -5080,6 +5116,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 920235725}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -5194,6 +5234,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 181931996}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -5252,6 +5296,10 @@ PrefabInstance:
     - target: {fileID: 7216906392117751861, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: m_Name
       value: CatPrefeb2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216906392117751861, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7216906392242644872, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5340,6 +5388,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 1669042484}
+    - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: foodstore
       value: 
@@ -5537,6 +5589,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 379866623}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
@@ -5782,6 +5838,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 603702885}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -5840,6 +5900,10 @@ PrefabInstance:
     - target: {fileID: 7216906392117751861, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: m_Name
       value: CatPrefeb2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216906392117751861, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7216906392242644872, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6117,6 +6181,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 374092890}
+    - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: foodstore
       value: 
@@ -6499,7 +6567,7 @@ MonoBehaviour:
   loseScreen: {fileID: 1859278159}
   winScreen: {fileID: 1582044159}
   playerJoystick: {fileID: 186118423}
-  dc: {fileID: 0}
+  dc: {fileID: 768380082}
 --- !u!114 &768380081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6525,7 +6593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DayNumber: 1
-  dayLength: 10
+  dayLength: 60
   timeRemaining: 60
   DayCount: {fileID: 1393851147}
   timerIsRunning: 0
@@ -6724,6 +6792,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 52710677}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
@@ -6940,6 +7012,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 281738815}
+    - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: foodstore
       value: 
@@ -8002,6 +8078,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 1439277956}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
@@ -9310,6 +9390,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2028595086}
     - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -9863,6 +9947,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 2126542704}
+    - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: foodstore
       value: 
@@ -11131,6 +11219,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2046086401}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -11341,7 +11433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1460236207
 Transform:
   m_ObjectHideFlags: 0
@@ -13236,6 +13328,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 207563454}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -14410,6 +14506,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 297892948}
     - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -14722,6 +14822,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 1135539689}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
@@ -15262,6 +15366,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 480246724}
     - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989752147958345579, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: foodstore
       value: 
       objectReference: {fileID: 35129350}
@@ -15321,6 +15429,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CatPrefeb1
       objectReference: {fileID: 0}
+    - target: {fileID: 1989752147958345581, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1989752148725364637, guid: 42d3ebe9d3b3e5e418efa0437758c728, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -15374,6 +15486,10 @@ PrefabInstance:
       propertyPath: catUI
       value: 
       objectReference: {fileID: 358805063}
+    - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: duration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7216906392117751859, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: foodstore
       value: 
@@ -15433,6 +15549,10 @@ PrefabInstance:
     - target: {fileID: 7216906392117751861, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: m_Name
       value: CatPrefeb2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216906392117751861, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7216906392242644872, guid: cfaad9647ce654948800b9706e230ee5, type: 3}
       propertyPath: m_AnchorMax.x

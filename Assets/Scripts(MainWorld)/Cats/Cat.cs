@@ -30,6 +30,8 @@ public class Cat : MonoBehaviour
     public bool IsDying = false;
     public bool Executed = false;
     public bool isSpayed = true;
+    public bool isInjured = false;
+
     public static UnityEvent onAnyCatDeath = new UnityEvent();
     public static UnityEvent onAnyCatDying = new UnityEvent();
     public static UnityEvent onAnyCatFeeding = new UnityEvent();
@@ -214,6 +216,16 @@ public class Cat : MonoBehaviour
     {
         //ensures that the cat's health bar is constantly updated so that it will be updated when healed
         HPB.SetBar(CatCurrentHealth);
+
+        //if the cat is not dead and has health less than 25% of max health, itll be considered injured
+        if ((Isdead == false) && (CatCurrentHealth < CatMaxHealth/4))
+        {
+            isInjured = true;
+        }
+        else
+        {
+            isInjured = false;
+        }
 
         //This check if the cat is dead and if it is being fed
         if ((Isdead == false) && (hasFeed == false))
