@@ -13,7 +13,7 @@ public class HappinessCheck : MonoBehaviour
     {
 
         float currentHappiness = happinessSystem.currentHappiness;
-        Debug.Log(currentHappiness);
+        //Debug.Log(currentHappiness);
         if (currentHappiness == 0)
         {
             Time.timeScale = 0f;
@@ -30,7 +30,7 @@ public class HappinessCheck : MonoBehaviour
         }
         else
         {
-            Debug.Log("not lose or win");
+            //Debug.Log("not lose or win");
         }
         
     }

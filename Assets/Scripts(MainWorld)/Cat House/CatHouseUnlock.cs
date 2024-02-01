@@ -6,7 +6,7 @@ public class CatHouseUnlock : MonoBehaviour
 {
     [SerializeField] private GameObject catHouse;
     [SerializeField] private int unlockCondition = 5;
-    private int itemCount;
+    public int itemCount;
 
     // Start is called before the first frame update
     void Start()
