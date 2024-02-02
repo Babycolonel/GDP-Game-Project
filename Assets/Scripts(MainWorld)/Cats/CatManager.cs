@@ -9,6 +9,7 @@ public class CatManager : MonoBehaviour
     public static UnityEvent onFeedingCat = new UnityEvent();
     public static UnityEvent onCaptureCat = new UnityEvent();
     public static UnityEvent onPettingCat = new UnityEvent();
+    public Animator playerAnimator;
     
 
     public void OnClickFeed()
@@ -37,6 +38,7 @@ public class CatManager : MonoBehaviour
     }
     void Pet()
     {
+        playerAnimator.SetTrigger("pet");
         onPettingCat.Invoke();
     }
 }
