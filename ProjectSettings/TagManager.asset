@@ -3,16 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - cat
+  - foodstore
+  - vet
+  - neighbour
+  - joystick
+  - item
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - wall
+  - cat
   - 
   - 
   - 
