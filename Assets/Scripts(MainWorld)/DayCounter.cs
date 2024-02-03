@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SocialPlatforms.Impl;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class DayCounter : MonoBehaviour
 {
@@ -15,21 +17,26 @@ public class DayCounter : MonoBehaviour
     [SerializeField] public float dayLength;
     public float timeRemaining;
     public TMP_Text DayCount;
+    public TMP_Text DayPop;
+    public TMP_Text HappyNumber;
     public bool timerIsRunning = false;
     public HappinessCheck happinessCheck;
     private HappinessSystem happinessSystem;
+    public GameObject DayPopScreen, dayCount;
     private void Start()
     {
         happinessSystem = happinessCheck.happinessSystem;
         //timeRemaining = 5;
         DayCount.text = "Day: " + DayNumber;
+        DayPop.text = "Day: " + DayNumber;
+        HappyNumber.text = "The community happiness is at " + happinessSystem.currentHappiness + "%";
         timerIsRunning = true;
         timeRemaining = dayLength;
     }
 
     void Update()
     {
-        if (timerIsRunning)
+        if (timerIsRunning && SceneManager.GetActiveScene().buildIndex == 0)
         {
             if (timeRemaining > 0)
             {
@@ -46,6 +53,8 @@ public class DayCounter : MonoBehaviour
                     DayCount.text = "Day: " + DayNumber;
                     timeRemaining = dayLength;
                     happinessCheck.HappyCheck();
+                    DayPopUp();
+
                 }
                 else
                 {
@@ -58,7 +67,28 @@ public class DayCounter : MonoBehaviour
             }
             happinessCheck.HappyCheck();
         }
+        else if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            return;
+        }
         
 
+
     }
+    public void DayPopUp()
+    {
+        dayCount.SetActive(false);
+        Time.timeScale = 0;
+        DayPopScreen.SetActive(true);
+        DayPop.text = "Day: " + DayNumber;
+        HappyNumber.text = "The community happiness is at " + happinessSystem.currentHappiness + "%";
+    }
+    public void OnClickReturnToGame()
+    {
+        Debug.Log("button working");
+        dayCount.SetActive(true);
+        DayPopScreen.SetActive(false);
+        Time.timeScale = 1;
+    }
+
 }
