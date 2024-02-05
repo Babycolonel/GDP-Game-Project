@@ -29,6 +29,7 @@ public class HappinessSystem : MonoBehaviour
         Cat.onAnyCatFeeding.AddListener(AddingHappiness);
         Cat.onSuccessPet.AddListener(PetHappiness);
         Cat.onFailPet.AddListener(DeductHappiness);
+        CatHouseScript.onCatInHouse.AddListener(AddingHappiness2);
     }
     
     
@@ -72,6 +73,10 @@ public class HappinessSystem : MonoBehaviour
     public void AddingHappiness()
     {
         AddHappiness(Time.deltaTime/2);
+    }
+    public void AddingHappiness2()
+    {
+        AddHappiness(Time.deltaTime);
     }
     public void PetHappiness()
     {

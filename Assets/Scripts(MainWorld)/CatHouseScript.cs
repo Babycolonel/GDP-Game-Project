@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class CatHouseScript : MonoBehaviour
 {
-    public GameObject CatinHouse;
+    public GameObject CatInHouse;
     public static UnityEvent onCatInHouse = new UnityEvent();
     public static UnityEvent CatPickup = new UnityEvent();
     public TMP_Text CatHouseText;
@@ -22,24 +22,54 @@ public class CatHouseScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        //onCatInHouse.AddListener();
+        onCatInHouse.AddListener(CatResting);
+        CatPickup.AddListener(PickUpCat);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        /*player = GameObject.FindGameObjectWithTag("Player");
+        if (player.GetComponent<PlayerInfo>().capturedCat == null && CatInHouse == null)
+        {
+            CatHouseText.text = "You are not carrying a cat";
+        }
+        if (player.GetComponent<PlayerInfo>().capturedCat != null && CatInHouse == null)
+        {
+            CatHouseText.text = "Tap the button to heal your cat!";
+        }*/
+
     }
 
     public void onClickPlace()
     {
-        if (CatinHouse == null && player.GetComponent<PlayerInfo>().capturedCat != null)
+        if (CatInHouse == null && player.GetComponent<PlayerInfo>().capturedCat != null)
         {
             onCatInHouse.Invoke();
         }
-        if (CatinHouse != null  && player.GetComponent<PlayerInfo>().capturedCat == null)
+        if (CatInHouse != null  && player.GetComponent<PlayerInfo>().capturedCat == null)
         {
             CatPickup.Invoke();
+        }
+    }
+
+    private void CatResting()
+    {
+        CatInHouse = player.GetComponent<PlayerInfo>().capturedCat;
+        player.GetComponent<PlayerInfo>().capturedCat = null;
+        CatHouseText.text = "Cat in house: 1/1";
+    }
+
+    private void PickUpCat()
+    {
+        if (player.GetComponent<PlayerInfo>().capturedCat == null)
+        {
+            cat = CatInHouse.GetComponent<Cat>();
+            CatInHouse.GetComponent<Cat>().IsFaint = false;
+            CatInHouse.GetComponent<Cat>().CatCurrentHunger = cat.CatMaxHunger;
+            player.GetComponent<PlayerInfo>().capturedCat = CatInHouse;
+            CatInHouse = null;
+            CatHouseText.text = "Cat in house: 1/1";
         }
     }
 
