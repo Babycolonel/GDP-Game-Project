@@ -47,16 +47,19 @@ public class CatHouseScript : MonoBehaviour
         {
             onCatInHouse.Invoke();
         }
-        if (CatInHouse != null  && player.GetComponent<PlayerInfo>().capturedCat == null)
+        else if (CatInHouse != null  && player.GetComponent<PlayerInfo>().capturedCat == null)
         {
             CatPickup.Invoke();
         }
+
     }
 
     private void CatResting()
     {
+        player.GetComponent<PlayerInfo>().capturedCat.GetComponent<Cat>().isCaptured = false;
         CatInHouse = player.GetComponent<PlayerInfo>().capturedCat;
         player.GetComponent<PlayerInfo>().capturedCat = null;
+        Debug.Log(player.GetComponent<PlayerInfo>().capturedCat);
         CatHouseText.text = "Cat in house: 1/1";
     }
 
@@ -66,10 +69,11 @@ public class CatHouseScript : MonoBehaviour
         {
             cat = CatInHouse.GetComponent<Cat>();
             CatInHouse.GetComponent<Cat>().IsFaint = false;
+            CatInHouse.GetComponent<Cat>().isCaptured = true;
             CatInHouse.GetComponent<Cat>().CatCurrentHunger = cat.CatMaxHunger;
             player.GetComponent<PlayerInfo>().capturedCat = CatInHouse;
             CatInHouse = null;
-            CatHouseText.text = "Cat in house: 1/1";
+            CatHouseText.text = "Cat in house: 0/1";
         }
     }
 
