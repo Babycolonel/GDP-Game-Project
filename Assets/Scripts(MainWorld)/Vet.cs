@@ -151,7 +151,7 @@ public class Vet : MonoBehaviour
         }
         if (player.GetComponent<PlayerInfo>().capturedCat != null && catInVet == null)
         {
-            vetStatusText.text = "Click the left button to heal your cat, and right to spay it!";
+            vetStatusText.text = "Tap the button to heal your cat!";
         }
         if (isHealed && player.GetComponent<PlayerInfo>().capturedCat != null)
         {
@@ -159,7 +159,7 @@ public class Vet : MonoBehaviour
         }
         else if (isHealed)
         {
-            vetStatusText.text = "Cat healed!";
+            vetStatusText.text = "Cat healed! Tap the button to pick up the cat";
         }
         if (isCatSpayed && player.GetComponent<PlayerInfo>().capturedCat != null)
         {
