@@ -9,6 +9,7 @@ public class UIButtonAppear : MonoBehaviour
     [SerializeField] GameObject CatCaptureButtons;
     [SerializeField] GameObject FoodstoreUI;
     [SerializeField] GameObject VetUI;
+    [SerializeField] GameObject CatHouseUI;
 
     public PlayerInfo player;
     private bool isNearCat = false;
@@ -68,6 +69,11 @@ public class UIButtonAppear : MonoBehaviour
         if (collision.CompareTag("vet"))
         {
             VetUI.SetActive(true);
+        }
+
+        if (collision.CompareTag("CatHouse"))
+        {
+            CatHouseUI.SetActive(true);
         }
     }
     private void OnCaptureCat()
