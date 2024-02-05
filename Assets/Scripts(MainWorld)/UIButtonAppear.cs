@@ -112,6 +112,10 @@ public class UIButtonAppear : MonoBehaviour
         {
             VetUI.SetActive(false);
         }
+        if (collision.CompareTag("CatHouse"))
+        {
+            CatHouseUI.SetActive(false);
+        }
     }
 
     void Update()

@@ -10,6 +10,7 @@ TagManager:
   - neighbour
   - joystick
   - item
+  - CatHouse
   layers:
   - Default
   - TransparentFX
