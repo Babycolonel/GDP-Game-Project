@@ -29,7 +29,7 @@ public class HappinessSystem : MonoBehaviour
         Cat.onAnyCatFeeding.AddListener(AddingHappiness);
         Cat.onSuccessPet.AddListener(PetHappiness);
         Cat.onFailPet.AddListener(DeductHappiness);
-        CatHouseScript.onCatInHouse.AddListener(AddingHappiness2);
+        CatHouseScript.CatHouseHappyIncrease.AddListener(AddingHappiness2);
     }
     
     

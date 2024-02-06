@@ -6,9 +6,13 @@ using UnityEngine.Events;
 
 public class CatHouseScript : MonoBehaviour
 {
+    [SerializeField]
+    private bool CatInHouseCheck = false;
+
     public GameObject CatInHouse;
     public static UnityEvent onCatInHouse = new UnityEvent();
     public static UnityEvent CatPickup = new UnityEvent();
+    public static UnityEvent CatHouseHappyIncrease = new UnityEvent();
     public TMP_Text CatHouseText;
 
     public Cat cat;
@@ -39,6 +43,11 @@ public class CatHouseScript : MonoBehaviour
             CatHouseText.text = "Tap the button to heal your cat!";
         }*/
 
+        if (CatInHouseCheck == true)
+        {
+            CatHouseHappyIncrease.Invoke();
+        }
+
     }
 
     public void onClickPlace()
@@ -46,10 +55,13 @@ public class CatHouseScript : MonoBehaviour
         if (CatInHouse == null && player.GetComponent<PlayerInfo>().capturedCat != null)
         {
             onCatInHouse.Invoke();
+            CatInHouseCheck = true;
+
         }
         else if (CatInHouse != null  && player.GetComponent<PlayerInfo>().capturedCat == null)
         {
             CatPickup.Invoke();
+            CatInHouseCheck = false;
         }
 
     }

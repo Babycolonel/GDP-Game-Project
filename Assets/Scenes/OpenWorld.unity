@@ -552,13 +552,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39279260}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7517567, y: -7.1860037, z: -0.3065697}
+  m_LocalPosition: {x: 8.361807, y: -6.535368, z: -1.438482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 129128033}
   - {fileID: 1254266111}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 718600395}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &49401356
@@ -6419,6 +6419,7 @@ Transform:
   - {fileID: 708164630}
   - {fileID: 1514861041}
   - {fileID: 284301141}
+  - {fileID: 39279261}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11393,6 +11394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7807c070ce637394b83e6bf96ecc77b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CatInHouseCheck: 0
   CatInHouse: {fileID: 0}
   CatHouseText: {fileID: 1473974152}
   cat: {fileID: 0}
