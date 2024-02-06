@@ -94,6 +94,7 @@ public class Vet : MonoBehaviour
             //player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             isHealing = true;
             timeTillHeal = timeNeededToHeal;
+            player.GetComponent<PlayerInfo>().capturedCat.GetComponent<Cat>().isCaptured = false;
             catInVet = player.GetComponent<PlayerInfo>().capturedCat;
             player.GetComponent<PlayerInfo>().capturedCat = null;
             //pin.capturedCat = null;
@@ -122,6 +123,7 @@ public class Vet : MonoBehaviour
             //player.GetComponent<PlayerInfo>().capturedCat = gameObject;
             catScript = catInVet.GetComponent<Cat>();
             catInVet.GetComponent<Cat>().IsFaint = false;
+            catInVet.GetComponent<Cat>().isCaptured = true;
             catInVet.GetComponent<Cat>().CatCurrentHealth = catScript.CatMaxHealth;
             catInVet.GetComponent<Cat>().CatCurrentHunger = catScript.CatMaxHunger;
             player.GetComponent<PlayerInfo>().capturedCat = catInVet;

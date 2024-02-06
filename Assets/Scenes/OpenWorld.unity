@@ -552,13 +552,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39279260}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.751757, y: -7.1860037, z: -0.3065697}
+  m_LocalPosition: {x: 8.361807, y: -6.535368, z: -1.438482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 129128033}
   - {fileID: 1254266111}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 718600395}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &49401356
@@ -6419,6 +6419,7 @@ Transform:
   - {fileID: 708164630}
   - {fileID: 1514861041}
   - {fileID: 284301141}
+  - {fileID: 39279261}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9135,7 +9136,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028771060}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -9171,7 +9172,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1028771063}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1387341229}
+        m_TargetAssemblyTypeName: CatHouseScript, Assembly-CSharp
+        m_MethodName: onClickPlace
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1028771063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11496,7 +11509,7 @@ GameObject:
   - component: {fileID: 1387341224}
   - component: {fileID: 1387341226}
   - component: {fileID: 1387341228}
-  - component: {fileID: 1387341227}
+  - component: {fileID: 1387341229}
   m_Layer: 0
   m_Name: catHouse
   m_TagString: CatHouse
@@ -11597,21 +11610,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5211316, y: 0.32187214}
   m_EdgeRadius: 0
---- !u!114 &1387341227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387341223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62c36d180f2fce644b16c6f5ff120527, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cat: {fileID: 1458496404}
-  HS: {fileID: 768380079}
-  catInHouse: 0
 --- !u!70 &1387341228
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11628,6 +11626,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00000016443776, y: -0.30714726}
   m_Size: {x: 0.66277456, y: 0.41025987}
   m_Direction: 1
+--- !u!114 &1387341229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387341223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7807c070ce637394b83e6bf96ecc77b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CatInHouseCheck: 0
+  CatInHouse: {fileID: 0}
+  CatHouseText: {fileID: 1473974152}
+  cat: {fileID: 0}
+  pin: {fileID: 186118429}
+  player: {fileID: 186118420}
 --- !u!1 &1393851144
 GameObject:
   m_ObjectHideFlags: 0
@@ -13074,7 +13090,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You do not have a cat
+  m_text: 'Cat in house: 0/1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
