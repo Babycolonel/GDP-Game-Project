@@ -19,6 +19,10 @@ public class CatHouseScript : MonoBehaviour
     public PlayerInfo pin;
     public GameObject player;
 
+    public Sprite catInHouse, catNotInHouse;
+
+    private SpriteRenderer spriteRenderer;
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -28,6 +32,7 @@ public class CatHouseScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         onCatInHouse.AddListener(CatResting);
         CatPickup.AddListener(PickUpCat);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -45,6 +50,7 @@ public class CatHouseScript : MonoBehaviour
 
         if (CatInHouseCheck == true)
         {
+            spriteRenderer.sprite = catInHouse;
             CatHouseHappyIncrease.Invoke();
         }
 
@@ -84,6 +90,9 @@ public class CatHouseScript : MonoBehaviour
             CatInHouse.GetComponent<Cat>().isCaptured = true;
             CatInHouse.GetComponent<Cat>().CatCurrentHunger = cat.CatMaxHunger;
             player.GetComponent<PlayerInfo>().capturedCat = CatInHouse;
+
+            spriteRenderer.sprite = catNotInHouse;
+
             CatInHouse = null;
             CatHouseText.text = "Cat in house: 0/1";
         }
